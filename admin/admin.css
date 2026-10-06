@@ -51,6 +51,7 @@ h1, h2, h3 { font-family: "EB Garamond", Georgia, serif; font-weight: 600; }
 .login-card h1 { font-size: 1.65rem; margin-bottom: 0.4rem; }
 .login-sub { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 1.5rem; line-height: 1.55; }
 .login-err { background: rgba(179, 38, 30, 0.08); border: 1px solid rgba(179, 38, 30, 0.35); color: var(--err); border-radius: 10px; padding: 0.7rem 0.9rem; font-size: 0.88rem; margin-bottom: 1rem; }
+.setup-note { background: rgba(238, 169, 35, 0.12); border: 1px solid rgba(238, 169, 35, 0.4); border-radius: 10px; padding: 0.8rem 0.95rem; font-size: 0.88rem; line-height: 1.55; color: var(--ink-soft); margin-bottom: 1.2rem; }
 .login-foot { margin-top: 1.3rem; text-align: center; color: var(--ink-soft); font-size: 0.8rem; }
 
 /* password eye */

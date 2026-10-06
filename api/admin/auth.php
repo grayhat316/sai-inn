@@ -12,6 +12,47 @@ if ($action === "check") {
     respond(["ok" => true, "authed" => false]);
 }
 
+/* Is this a brand-new install with no administrator yet? The login page uses
+   this to offer first-time setup, so a host that was never given a password
+   (no shell, no env var) can still be claimed from the browser. */
+if ($action === "needs_setup") {
+    respond(["ok" => true, "needs_setup" => admin_count() === 0]);
+}
+
+/* One-time creation of the first administrator. Refuses the moment any
+   administrator exists, so it cannot be used to take over a live site. */
+if ($action === "first_admin") {
+    if (($_SERVER["REQUEST_METHOD"] ?? "") !== "POST") {
+        fail("Method not allowed.", 405);
+    }
+    if (admin_count() > 0) {
+        fail("This site already has an administrator.", 403);
+    }
+    if (rate_limited("firstadmin:" . client_ip(), 8, 900)) {
+        fail("Too many attempts. Try again later.", 429);
+    }
+    $data = body_fields();
+    $username = clean_text($data["username"] ?? "admin", 60);
+    $password = (string) ($data["password"] ?? "");
+    $token = (string) ($data["token"] ?? "");
+    $expected = (string) (getenv("SAI_SETUP_TOKEN") ?: "");
+    if ($username === "") {
+        fail("Choose a username.");
+    }
+    if (strlen($password) < 10) {
+        fail("Password must be at least 10 characters.");
+    }
+    if ($expected !== "" && !hash_equals($expected, $token)) {
+        fail("Wrong setup token.", 403);
+    }
+    $stmt = db()->prepare("INSERT INTO admins (username, password_hash) VALUES (?, ?)");
+    $stmt->execute([$username, password_hash($password, PASSWORD_DEFAULT)]);
+    session_regenerate_id(true);
+    $_SESSION["admin_id"] = (int) db()->lastInsertId();
+    $_SESSION["csrf"] = bin2hex(random_bytes(24));
+    respond(["ok" => true, "csrf" => csrf_token(), "username" => $username]);
+}
+
 if ($action === "logout") {
     session_destroy();
     respond(["ok" => true]);

@@ -19,6 +19,12 @@ function admin_id(): int
     return (int) ($_SESSION["admin_id"] ?? 0);
 }
 
+/* how many administrators exist: 0 means the install was never claimed */
+function admin_count(): int
+{
+    return (int) db()->query("SELECT COUNT(*) FROM admins")->fetchColumn();
+}
+
 function require_admin(): void
 {
     if (admin_id() <= 0) {

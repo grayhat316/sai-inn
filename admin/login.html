@@ -19,8 +19,27 @@
       <span class="login-logo">SAI INN</span>
       <span class="login-loc">ELDORET</span>
     </div>
-    <h1>Admin dashboard</h1>
-    <p class="login-sub">Rooms, menu, bookings, orders and everything else, all in one place.</p>
+    <h1 id="login-title">Admin dashboard</h1>
+    <p class="login-sub" id="login-sub">Rooms, menu, bookings, orders and everything else, all in one place.</p>
+    <form id="setup-form" hidden novalidate>
+      <p class="setup-note">This site has no administrator yet. Choose the login you will use from now on &mdash; do it now, whoever creates it first owns the dashboard.</p>
+      <label class="f-label" for="su-user">Username</label>
+      <input class="f-input" id="su-user" type="text" value="admin" autocomplete="username" required>
+      <label class="f-label" for="su-pass">Password (at least 10 characters)</label>
+      <span class="pw-wrap">
+        <input class="f-input" id="su-pass" type="password" autocomplete="new-password" required>
+        <button type="button" class="pw-eye" id="su-eye" aria-label="Show password">
+          <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          <svg class="eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+        </button>
+      </span>
+      <label class="f-label" for="su-pass2">Repeat the password</label>
+      <input class="f-input" id="su-pass2" type="password" autocomplete="new-password" required>
+      <label class="f-label" for="su-token">Setup token (leave blank unless your host asked for one)</label>
+      <input class="f-input" id="su-token" type="text" autocomplete="off">
+      <div class="login-err" id="setup-err" hidden></div>
+      <button class="btn-gold" type="submit">Create the administrator</button>
+    </form>
     <form id="login-form" novalidate>
       <label class="f-label" for="lg-user">Username</label>
       <input class="f-input" id="lg-user" type="text" autocomplete="username" required>

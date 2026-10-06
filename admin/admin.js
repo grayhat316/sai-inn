@@ -83,7 +83,7 @@
   /* ---------- login page ---------- */
   var loginForm = document.getElementById("login-form");
   if (loginForm) {
-    /* show / hide password */
+    /* show / hide password on the sign-in field */
     var eyeBtn = document.getElementById("lg-eye");
     var passInput = document.getElementById("lg-pass");
     if (eyeBtn && passInput) {
@@ -94,6 +94,76 @@
         eyeBtn.setAttribute("aria-label", show ? "Hide password" : "Show password");
       });
     }
+
+    /* ---------- first-time setup ---------- */
+    /* A deploy that was never given an admin password boots with no
+       administrator at all. In that case the page offers to create one,
+       and only while no administrator exists. */
+    var setupForm = document.getElementById("setup-form");
+    var setupEye = document.getElementById("su-eye");
+    var setupPass = document.getElementById("su-pass");
+    if (setupEye && setupPass) {
+      setupEye.addEventListener("click", function () {
+        var show = setupPass.type === "password";
+        setupPass.type = show ? "text" : "password";
+        setupEye.classList.toggle("on", show);
+        setupEye.setAttribute("aria-label", show ? "Hide password" : "Show password");
+      });
+    }
+
+    if (setupForm) {
+      fetch("../api/admin/auth.php?action=needs_setup", { credentials: "same-origin" })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (!d || !d.needs_setup) return;
+          setupForm.hidden = false;
+          loginForm.hidden = true;
+          var t = document.getElementById("login-title");
+          var s = document.getElementById("login-sub");
+          if (t) t.textContent = "Set up your dashboard";
+          if (s) s.textContent = "One minute now, and the dashboard is yours.";
+          var tokenRow = document.getElementById("su-token-row");
+          if (tokenRow && !window.__saiTokenNeeded) tokenRow.hidden = true;
+        })
+        .catch(function () {});
+
+      setupForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var err = document.getElementById("setup-err");
+        var btn = setupForm.querySelector("button[type=submit]");
+        var user = document.getElementById("su-user").value.trim() || "admin";
+        var pw = setupPass.value;
+        var pw2 = document.getElementById("su-pass2").value;
+        var showErr = function (msg) {
+          err.textContent = msg;
+          err.hidden = false;
+          btn.disabled = false;
+          btn.textContent = "Create the administrator";
+        };
+        err.hidden = true;
+        if (pw.length < 10) { showErr("Use at least 10 characters for the password."); return; }
+        if (pw !== pw2) { showErr("The two passwords do not match."); return; }
+        btn.disabled = true;
+        btn.textContent = "Creating";
+        var tokenEl = document.getElementById("su-token");
+        fetch("../api/admin/auth.php?action=first_admin", {
+          method: "POST",
+          credentials: "same-origin",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username: user, password: pw, token: tokenEl ? tokenEl.value : "" })
+        })
+          .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+          .then(function (res) {
+            if (!res.ok || !res.d.ok) throw new Error((res.d && res.d.error) || "Could not create the administrator.");
+            try {
+              localStorage.setItem("sai_admin_remember", JSON.stringify({ u: res.d.username || user, p: pw }));
+            } catch (e) {}
+            location.href = "index.html";
+          })
+          .catch(function (e2) { showErr(e2.message); });
+      });
+    }
+
     /* remember me: prefill username + password saved on this device */
     try {
       var saved = localStorage.getItem("sai_admin_remember");
