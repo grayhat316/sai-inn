@@ -21,8 +21,9 @@ COPY . /var/www/html/
 RUN mkdir -p /var/www/html/data /var/www/html/uploads \
  && chown -R www-data:www-data /var/www/html/data /var/www/html/uploads
 
-COPY docker-entrypoint.sh /usr/local/bin/sai-entrypoint.sh
-RUN chmod +x /usr/local/bin/sai-entrypoint.sh
-
 EXPOSE 8080
-CMD ["/usr/local/bin/sai-entrypoint.sh"]
+
+# Apache has to listen on the port the platform hands us, and the runtime folders
+# must be writable. Kept inline on purpose: an entrypoint script checked out with
+# Windows line endings is unrunnable inside the container.
+CMD ["sh", "-c", "PORT=\"${PORT:-8080}\"; sed -ri \"s/^Listen 80$/Listen ${PORT}/\" /etc/apache2/ports.conf; sed -ri \"s/:80>/:${PORT}>/\" /etc/apache2/sites-available/000-default.conf; mkdir -p /var/www/html/data /var/www/html/uploads; chown -R www-data:www-data /var/www/html/data /var/www/html/uploads; echo \"Sai Inn listening on ${PORT}\"; exec apache2-foreground"]
