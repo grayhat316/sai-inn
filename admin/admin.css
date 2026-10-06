@@ -251,6 +251,13 @@ h1, h2, h3 { font-family: "EB Garamond", Georgia, serif; font-weight: 600; }
 .m-detail-row { display: flex; gap: 1rem; padding: 0.55rem 0; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
 .m-detail-row span:first-child { flex: none; width: 90px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
 .m-detail-msg { background: var(--paper-warm); border: 1px solid var(--line); border-radius: 10px; padding: 0.8rem; margin-top: 0.8rem; font-size: 0.9rem; white-space: pre-wrap; }
+/* photos inside a detail modal (announcements) */
+.ann-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 0.5rem; margin: 0.5rem 0 0.8rem; }
+.ann-shots img { width: 100%; height: 92px; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); display: block; }
+.ann-shots a:hover img { border-color: var(--gold); }
+/* rows that open a detail view when clicked */
+.item-row.row-click { cursor: pointer; }
+.item-row.row-click:hover { background: rgba(238, 169, 35, 0.07); }
 .gal-cap-line { font-size: 0.78rem; color: var(--ink-soft); min-height: 2.2em; }
 .gal-cap-line i { font-style: italic; opacity: 0.7; }
 

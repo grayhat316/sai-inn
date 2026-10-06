@@ -1337,6 +1337,52 @@
     }).catch(function (e) { toast(e.message, "err"); });
   }
 
+  /* full announcement, opened by clicking a row in the list */
+  function announcementDetail(id) {
+    api("announcements.php", { action: "list" }).then(function (d) {
+      var a = (d.announcements || []).find(function (x) { return Number(x.id) === id; });
+      if (!a) { toast("That announcement is gone.", "err"); viewAnnouncements(); return; }
+      var imgs = Array.isArray(a.images) ? a.images : [];
+      var when = [];
+      if (a.starts_on) when.push("from " + a.starts_on);
+      if (a.ends_on) when.push("until " + a.ends_on);
+      var body =
+        '<div class="m-detail-row"><span>Type</span><span>' + esc(a.kind || "Notice") + '</span></div>' +
+        '<div class="m-detail-row"><span>State</span><span>' +
+          (Number(a.active) ? "Live on the site" : "Draft (hidden)") +
+          (Number(a.pinned) ? " | pinned to the top of every page" : "") +
+        '</span></div>' +
+        '<div class="m-detail-row"><span>Dates</span><span>' + (when.length ? esc(when.join(", ")) : "always shown") + '</span></div>' +
+        '<div class="m-detail-row"><span>Photos</span><span>' + (imgs.length ? imgs.length + (imgs.length === 1 ? " photo" : " photos") : "none") + '</span></div>' +
+        '<div class="m-detail-msg">' + esc(a.body || "") + '</div>' +
+        (imgs.length
+          ? '<label class="f-label">Photos (click one to open it full size)</label>' +
+            '<div class="ann-shots">' + imgs.map(function (g, i) {
+              return '<a href="../' + esc(g) + '" target="_blank" rel="noopener">' +
+                '<img src="../' + esc(g) + '" alt="' + esc(a.title) + ' photo ' + (i + 1) + '"></a>';
+            }).join("") + '</div>'
+          : "") +
+        '<p class="f-hint">This is exactly what a guest sees on the site' +
+          (imgs.length > 1 ? ", photos included" : "") + '.</p>';
+      openModal(a.title || "Announcement", body, function (e, close) {
+        close();
+        announcementModal(id);
+      });
+      var save = document.getElementById("modal-save");
+      if (save) save.textContent = "Edit this announcement";
+      var ops = document.querySelector("#modal .ops");
+      if (ops) {
+        var view = document.createElement("a");
+        view.className = "btn btn-line btn-sm";
+        view.textContent = "See it on the site";
+        view.href = "../notice?id=" + id;
+        view.target = "_blank";
+        view.rel = "noopener";
+        ops.insertBefore(view, ops.firstChild);
+      }
+    }).catch(function (e) { toast(e.message, "err"); });
+  }
+
   function viewAnnouncements() {
     render(async function () {
       var d = await api("announcements.php", { action: "list" });
@@ -1353,7 +1399,7 @@
           var badges = (Number(a.active) === 0 ? ' <span class="badge badge-cancelled">draft</span>' : ' <span class="badge badge-confirmed">live</span>') +
             (Number(a.pinned) === 1 ? ' <span class="badge badge-pending">pinned</span>' : "");
           var when = (a.starts_on ? "from " + esc(a.starts_on) : "") + (a.ends_on ? " until " + esc(a.ends_on) : "");
-          return '<div class="item-row" draggable="true" data-id="' + a.id + '">' +
+          return '<div class="item-row row-click" draggable="true" data-id="' + a.id + '">' +
             '<span class="drag-handle" title="Drag to reorder">&#9776;</span>' +
             (imgs.length
               ? '<img src="../' + esc(imgs[0]) + '" alt="" style="width:80px;height:60px;border-radius:9px;object-fit:cover;">'
@@ -1361,6 +1407,7 @@
             '<div class="info"><div class="nm">' + esc(a.title) + badges + '</div>' +
             '<div class="sub">' + esc(a.kind || "Notice") + (when ? " | " + when : "") + (imgs.length > 1 ? " | " + imgs.length + " photos" : "") + '<br>' + esc(String(a.body || "").slice(0, 110)) + '</div></div>' +
             '<div class="ops">' +
+            '<button class="btn btn-sm btn-gold view-ann" data-id="' + a.id + '">View</button>' +
             '<button class="btn btn-sm btn-line edit-ann" data-id="' + a.id + '">Edit</button>' +
             '<button class="btn btn-sm btn-line toggle-ann" data-id="' + a.id + '">' + (Number(a.active) ? "Unpublish" : "Publish") + '</button>' +
             '<button class="btn btn-sm btn-line pin-ann" data-id="' + a.id + '">' + (Number(a.pinned) ? "Unpin" : "Pin") + '</button>' +
@@ -1371,6 +1418,17 @@
     }).then(function () {
       dragList(document.getElementById("ann-list"), "announcements.php");
       document.getElementById("add-ann").addEventListener("click", function () { announcementModal(null); });
+
+      /* the whole row opens the announcement, like the bookings list does */
+      document.querySelectorAll("#ann-list .item-row").forEach(function (row) {
+        row.addEventListener("click", function (e) {
+          if (e.target.closest("button") || e.target.closest(".drag-handle")) return;
+          announcementDetail(Number(row.dataset.id));
+        });
+      });
+      document.querySelectorAll(".view-ann").forEach(function (b) {
+        b.addEventListener("click", function () { announcementDetail(Number(b.dataset.id)); });
+      });
       document.querySelectorAll(".edit-ann").forEach(function (b) {
         b.addEventListener("click", function () { announcementModal(Number(b.dataset.id)); });
       });
@@ -1513,7 +1571,10 @@
     });
   }
 
-  /* ---------- router ---------- */
+  /* ---------- router ----------
+     Every sidebar button needs its entry here: the click handler highlights the
+     tab first and then calls ROUTES[view](), so a missing entry leaves the panel
+     on the old view with no visible error. */
   var ROUTES = {
     dashboard: viewDashboard,
     bookings: viewBookings,
@@ -1523,6 +1584,7 @@
     gallery: viewGallery,
     moments: viewMoments,
     offers: viewOffers,
+    announcements: viewAnnouncements,
     journal: viewJournal,
     events: viewEvents,
     testimonials: viewTestimonials,
