@@ -1,7 +1,9 @@
 # runtime data: the database holds bookings and orders, uploads hold guest photos.
 # Both live on the server, never in the repository.
-data/
-uploads/
+# Leading slash = only the top-level folders; seed/uploads/ is a ship-with-the-code
+# snapshot and must not be caught by these rules.
+/data/
+/uploads/
 *.sqlite
 *.sqlite3
 *.sqlite-wal
