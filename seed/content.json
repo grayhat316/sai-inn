@@ -1,0 +1,1084 @@
+{
+ "content": [
+  {
+   "key": "tagline",
+   "value": "A haven of peace and good food"
+  }
+ ],
+ "rooms": [
+  {
+   "slug": "single-standard",
+   "name": "Single Standard",
+   "price": 3500,
+   "image": "assets/images/organized/rooms/single standard-1.jpg",
+   "gallery": "[\"assets\\/images\\/organized\\/rooms\\/single standard-1.jpg\",\"assets\\/images\\/organized\\/rooms\\/single standard-2.jpg\"]",
+   "description": "Our standard single rooms are surprisingly spacious, with great finishes and everything a guest needs for a relaxed stay.",
+   "amenities": "[\"Free Wi-Fi\",\"Bed and breakfast\",\"Hot shower\",\"Workspace\"]",
+   "sort": 0
+  },
+  {
+   "slug": "single-superior",
+   "name": "Single Superior",
+   "price": 4000,
+   "image": "assets/images/organized/rooms/single superior.jpg",
+   "gallery": "[\"assets\\/images\\/organized\\/rooms\\/single superior.jpg\"]",
+   "description": "Cozy and exotic. A king size bed, a seating area facing the TV and a terrace with interesting views.",
+   "amenities": "[\"King size bed\",\"Terrace views\",\"Free Wi-Fi\",\"Bed and breakfast\"]",
+   "sort": 1
+  },
+  {
+   "slug": "double-standard",
+   "name": "Double Standard",
+   "price": 4500,
+   "image": "assets/images/organized/rooms/double standard-1.jpg",
+   "gallery": "[\"assets\\/images\\/organized\\/rooms\\/double standard-1.jpg\",\"assets\\/images\\/organized\\/rooms\\/double standard-2.jpg\",\"assets\\/images\\/organized\\/rooms\\/double standard-3.jpg\"]",
+   "description": "Standard double rooms with beds big enough for two and the basic amenities you need to enjoy your stay.",
+   "amenities": "[\"Double bed\",\"Free Wi-Fi\",\"Hot shower\",\"Bed and breakfast\"]",
+   "sort": 2
+  },
+  {
+   "slug": "twin-standard",
+   "name": "Twin Standard",
+   "price": 5000,
+   "image": "assets/images/organized/rooms/twin standard.jpg",
+   "gallery": "[\"assets\\/images\\/organized\\/rooms\\/twin standard.jpg\"]",
+   "description": "Two comfortable single beds in a spacious room, ideal for friends or colleagues travelling together.",
+   "amenities": "[\"Twin beds\",\"Free Wi-Fi\",\"Hot shower\",\"Bed and breakfast\"]",
+   "sort": 3
+  },
+  {
+   "slug": "double-superior",
+   "name": "Double Superior",
+   "price": 5000,
+   "image": "assets/images/organized/rooms/double superior.jpg",
+   "gallery": "[\"assets\\/images\\/organized\\/rooms\\/double superior.jpg\"]",
+   "description": "The Suite. A one bedroom room with an independent living room, soft lighting, a dining area and elegant furnishings.",
+   "amenities": "[\"Living room\",\"Dining area\",\"Soft lighting\",\"Bed and breakfast\"]",
+   "sort": 4
+  }
+ ],
+ "menu_items": [
+  {
+   "slug": "mandazi-pair",
+   "category": "BITES",
+   "name": "Mandazi (Pair)",
+   "price": 50.0,
+   "image": "assets/images/Mandazi.png",
+   "images": "[]",
+   "description": "Our Mandazi (Pair) is a quick, filling bite made fresh to order and served hot from the kitchen.",
+   "sort": 0
+  },
+  {
+   "slug": "chapati",
+   "category": "BITES",
+   "name": "Chapati",
+   "price": 50.0,
+   "image": "assets/images/Chapati.png",
+   "images": "[]",
+   "description": "Our Chapati is a quick, filling bite made fresh to order and served hot from the kitchen.",
+   "sort": 1
+  },
+  {
+   "slug": "pancake-pair",
+   "category": "BITES",
+   "name": "Pancake (Pair)",
+   "price": 100.0,
+   "image": "assets/images/PanCake.png",
+   "images": "[]",
+   "description": "Our Pancake (Pair) is a quick, filling bite made fresh to order and served hot from the kitchen.",
+   "sort": 2
+  },
+  {
+   "slug": "fluffy-pancake-with-honey",
+   "category": "BITES",
+   "name": "Fluffy Pancake With Honey",
+   "price": 200.0,
+   "image": "assets/images/Fluffy-Pancake.png",
+   "images": "[]",
+   "description": "Our Fluffy Pancake With Honey is a quick, filling bite made fresh to order and served hot from the kitchen.",
+   "sort": 3
+  },
+  {
+   "slug": "soda-300ml",
+   "category": "COLD DRINKS",
+   "name": "Soda 300ml",
+   "price": 60.0,
+   "image": "assets/images/soda-500ml.png",
+   "images": "[]",
+   "description": "Soda 300ml, served ice cold and refreshing, the easy way to cool off any time of day.",
+   "sort": 4
+  },
+  {
+   "slug": "soda-500ml",
+   "category": "COLD DRINKS",
+   "name": "Soda 500ml",
+   "price": 100.0,
+   "image": "assets/images/soda-500ml.png",
+   "images": "[]",
+   "description": "Soda 500ml, served ice cold and refreshing, the easy way to cool off any time of day.",
+   "sort": 5
+  },
+  {
+   "slug": "mineral-water-1litre",
+   "category": "COLD DRINKS",
+   "name": "Mineral Water 1Litre",
+   "price": 100.0,
+   "image": "assets/images/Mineral-Water.png",
+   "images": "[]",
+   "description": "Mineral Water 1Litre, served ice cold and refreshing, the easy way to cool off any time of day.",
+   "sort": 6
+  },
+  {
+   "slug": "mineral-water-500ml",
+   "category": "COLD DRINKS",
+   "name": "Mineral Water 500ml",
+   "price": 50.0,
+   "image": "assets/images/Mineral-Water.png",
+   "images": "[]",
+   "description": "Mineral Water 500ml, served ice cold and refreshing, the easy way to cool off any time of day.",
+   "sort": 7
+  },
+  {
+   "slug": "delmonte",
+   "category": "COLD DRINKS",
+   "name": "Delmonte",
+   "price": 350.0,
+   "image": "assets/images/Delmonte.png",
+   "images": "[]",
+   "description": "Delmonte, served ice cold and refreshing, the easy way to cool off any time of day.",
+   "sort": 8
+  },
+  {
+   "slug": "cocktail-juice",
+   "category": "COLD DRINKS",
+   "name": "Cocktail Juice",
+   "price": 150.0,
+   "image": "assets/images/cocktail1.png",
+   "images": "[]",
+   "description": "Cocktail Juice, served ice cold and refreshing, the easy way to cool off any time of day.",
+   "sort": 9
+  },
+  {
+   "slug": "smoothies",
+   "category": "COLD DRINKS",
+   "name": "Smoothies",
+   "price": 100.0,
+   "image": "assets/images/Smoothies2.png",
+   "images": "[]",
+   "description": "Smoothies, served ice cold and refreshing, the easy way to cool off any time of day.",
+   "sort": 10
+  },
+  {
+   "slug": "fresh-milk-1-glass",
+   "category": "COLD DRINKS",
+   "name": "Fresh Milk (1 Glass)",
+   "price": 100.0,
+   "image": "assets/images/Glass-Fresh-Milk.png",
+   "images": "[]",
+   "description": "Fresh Milk (1 Glass), served ice cold and refreshing, the easy way to cool off any time of day.",
+   "sort": 11
+  },
+  {
+   "slug": "fresh-juice",
+   "category": "COLD DRINKS",
+   "name": "Fresh Juice",
+   "price": 100.0,
+   "image": "assets/images/Fruit-Juice.png",
+   "images": "[]",
+   "description": "Fresh Juice, served ice cold and refreshing, the easy way to cool off any time of day.",
+   "sort": 12
+  },
+  {
+   "slug": "mala-1-glass",
+   "category": "COLD DRINKS",
+   "name": "Mala (1 Glass)",
+   "price": 100.0,
+   "image": "assets/images/Mala.png",
+   "images": "[]",
+   "description": "Mala (1 Glass), served ice cold and refreshing, the easy way to cool off any time of day.",
+   "sort": 13
+  },
+  {
+   "slug": "fruit-salad-with-honey",
+   "category": "DESERT",
+   "name": "Fruit Salad with Honey",
+   "price": 300.0,
+   "image": "assets/images/Fruit-salad-with-honey-1.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 14
+  },
+  {
+   "slug": "ice-cream",
+   "category": "DESERT",
+   "name": "Ice Cream",
+   "price": 300.0,
+   "image": "assets/images/Icream2.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 15
+  },
+  {
+   "slug": "mixed-tea-mug",
+   "category": "HOT BEVERAGES",
+   "name": "Mixed Tea (Mug)",
+   "price": 50.0,
+   "image": "assets/images/Tea.png",
+   "images": "[]",
+   "description": "Our Mixed Tea (Mug) is prepared hot, strong and fresh the moment you order it, the way it should be.",
+   "sort": 16
+  },
+  {
+   "slug": "mixed-tea-pot",
+   "category": "HOT BEVERAGES",
+   "name": "Mixed Tea (Pot)",
+   "price": 100.0,
+   "image": "assets/images/Tea-Pot.png",
+   "images": "[]",
+   "description": "Our Mixed Tea (Pot) is prepared hot, strong and fresh the moment you order it, the way it should be.",
+   "sort": 17
+  },
+  {
+   "slug": "tea-masala",
+   "category": "HOT BEVERAGES",
+   "name": "Tea Masala",
+   "price": 50.0,
+   "image": "assets/images/Tea.png",
+   "images": "[]",
+   "description": "Our Tea Masala is prepared hot, strong and fresh the moment you order it, the way it should be.",
+   "sort": 18
+  },
+  {
+   "slug": "tea-masala-pot",
+   "category": "HOT BEVERAGES",
+   "name": "Tea Masala (Pot)",
+   "price": 100.0,
+   "image": "assets/images/Tea-Pot.png",
+   "images": "[]",
+   "description": "Our Tea Masala (Pot) is prepared hot, strong and fresh the moment you order it, the way it should be.",
+   "sort": 19
+  },
+  {
+   "slug": "hot-chocolate-mug",
+   "category": "HOT BEVERAGES",
+   "name": "Hot Chocolate (Mug)",
+   "price": 60.0,
+   "image": "",
+   "images": "[]",
+   "description": "Our Hot Chocolate (Mug) is prepared hot, strong and fresh the moment you order it, the way it should be.",
+   "sort": 20
+  },
+  {
+   "slug": "hot-milo-mug",
+   "category": "HOT BEVERAGES",
+   "name": "Hot Milo (Mug)",
+   "price": 60.0,
+   "image": "",
+   "images": "[]",
+   "description": "Our Hot Milo (Mug) is prepared hot, strong and fresh the moment you order it, the way it should be.",
+   "sort": 21
+  },
+  {
+   "slug": "chai-dawa-mug",
+   "category": "HOT BEVERAGES",
+   "name": "Chai Dawa (Mug)",
+   "price": 100.0,
+   "image": "assets/images/Chai-Dawa.png",
+   "images": "[]",
+   "description": "Our Chai Dawa (Mug) is prepared hot, strong and fresh the moment you order it, the way it should be.",
+   "sort": 22
+  },
+  {
+   "slug": "lemon-tea",
+   "category": "HOT BEVERAGES",
+   "name": "Lemon Tea",
+   "price": 50.0,
+   "image": "assets/images/Lemon-Tea.png",
+   "images": "[]",
+   "description": "Our Lemon Tea is prepared hot, strong and fresh the moment you order it, the way it should be.",
+   "sort": 23
+  },
+  {
+   "slug": "whole-fish",
+   "category": "MAIN COURSE/DISH",
+   "name": "Whole Fish",
+   "price": 500.0,
+   "image": "assets/images/Fish-Stew.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 0
+  },
+  {
+   "slug": "beef-stew",
+   "category": "MAIN COURSE/DISH",
+   "name": "Beef Stew",
+   "price": 450.0,
+   "image": "assets/images/beef-stew.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 1
+  },
+  {
+   "slug": "beef-curry",
+   "category": "MAIN COURSE/DISH",
+   "name": "Beef Curry",
+   "price": 450.0,
+   "image": "assets/images/beef-Curry.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 2
+  },
+  {
+   "slug": "mutton-stew",
+   "category": "MAIN COURSE/DISH",
+   "name": "Mutton Stew",
+   "price": 500.0,
+   "image": "assets/images/Mutton-Stew.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 3
+  },
+  {
+   "slug": "chicken-curry-broiler",
+   "category": "MAIN COURSE/DISH",
+   "name": "Chicken Curry (Broiler)",
+   "price": 500.0,
+   "image": "assets/images/Chicken-Curry.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 4
+  },
+  {
+   "slug": "chicken-broiler",
+   "category": "MAIN COURSE/DISH",
+   "name": "Chicken (Broiler)",
+   "price": 500.0,
+   "image": "assets/images/Chicken-Stew.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 5
+  },
+  {
+   "slug": "liver",
+   "category": "MAIN COURSE/DISH",
+   "name": "Liver",
+   "price": 400.0,
+   "image": "assets/images/Liver.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 6
+  },
+  {
+   "slug": "chicken-kienyeji",
+   "category": "MAIN COURSE/DISH",
+   "name": "Chicken (Kienyeji)",
+   "price": 600.0,
+   "image": "assets/images/Chicken-Stew.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 7
+  },
+  {
+   "slug": "vegetable-rice",
+   "category": "MAIN COURSE/DISH",
+   "name": "Vegetable Rice",
+   "price": 250.0,
+   "image": "assets/images/Vegtable-Rice-300x162.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 8
+  },
+  {
+   "slug": "egg-curry",
+   "category": "MAIN COURSE/DISH",
+   "name": "Egg Curry",
+   "price": 150.0,
+   "image": "assets/images/Egg-Curry.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 9
+  },
+  {
+   "slug": "ugali-managu",
+   "category": "MAIN COURSE/DISH",
+   "name": "Ugali Managu",
+   "price": 200.0,
+   "image": "assets/images/Ugali-Managu2.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 10
+  },
+  {
+   "slug": "rice-plain",
+   "category": "MAIN COURSE/DISH",
+   "name": "Rice Plain",
+   "price": 150.0,
+   "image": "assets/images/Rice-Plain.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 11
+  },
+  {
+   "slug": "chips-masala",
+   "category": "MAIN COURSE/DISH",
+   "name": "Chips Masala",
+   "price": 250.0,
+   "image": "assets/images/Chips-Masala.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 12
+  },
+  {
+   "slug": "french-fries",
+   "category": "MAIN COURSE/DISH",
+   "name": "French Fries",
+   "price": 200.0,
+   "image": "assets/images/French-Fries.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 13
+  },
+  {
+   "slug": "sausage-pair",
+   "category": "MAIN COURSE/DISH",
+   "name": "Sausage (Pair)",
+   "price": 100.0,
+   "image": "assets/images/Sausages.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 14
+  },
+  {
+   "slug": "sausage-masala",
+   "category": "MAIN COURSE/DISH",
+   "name": "Sausage Masala",
+   "price": 150.0,
+   "image": "assets/images/Sausage-Masala.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 15
+  },
+  {
+   "slug": "poached-egg",
+   "category": "MAIN COURSE/DISH",
+   "name": "Poached Egg",
+   "price": 100.0,
+   "image": "assets/images/Poached-Egg.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 16
+  },
+  {
+   "slug": "spanish-omelette",
+   "category": "MAIN COURSE/DISH",
+   "name": "Spanish Omelette",
+   "price": 150.0,
+   "image": "assets/images/spanish-omolette.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 17
+  },
+  {
+   "slug": "ugali-mboga-spinach-sukuma-cabbage",
+   "category": "MAIN COURSE/DISH",
+   "name": "Ugali Mboga (Spinach, Sukuma, Cabbage)",
+   "price": 100.0,
+   "image": "assets/images/Ugali-mboga.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 18
+  },
+  {
+   "slug": "ugali-plain",
+   "category": "MAIN COURSE/DISH",
+   "name": "Ugali Plain",
+   "price": 50.0,
+   "image": "assets/images/Ugali-Plain.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 19
+  },
+  {
+   "slug": "managu-plain",
+   "category": "MAIN COURSE/DISH",
+   "name": "Managu Plain",
+   "price": 150.0,
+   "image": "assets/images/Managu-Plain1.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 20
+  },
+  {
+   "slug": "pilau",
+   "category": "MAIN COURSE/DISH",
+   "name": "Pilau",
+   "price": 250.0,
+   "image": "assets/images/Pilau2.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 22
+  },
+  {
+   "slug": "matumbo-plain",
+   "category": "MAIN COURSE/DISH",
+   "name": "Matumbo Plain",
+   "price": 150.0,
+   "image": "assets/images/Matumbo1.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 23
+  },
+  {
+   "slug": "peas-plain-minji",
+   "category": "MAIN COURSE/DISH",
+   "name": "Peas Plain (Minji)",
+   "price": 150.0,
+   "image": "assets/images/Peas-Plain.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 24
+  },
+  {
+   "slug": "roasted-potatoes",
+   "category": "MAIN COURSE/DISH",
+   "name": "Roasted Potatoes",
+   "price": 150.0,
+   "image": "assets/images/Roast-Potatoes.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 25
+  },
+  {
+   "slug": "spaghetti-bolognese",
+   "category": "MAIN COURSE/DISH",
+   "name": "Spaghetti Bolognese",
+   "price": 300.0,
+   "image": "assets/images/Spagheti-bolognese.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 26
+  },
+  {
+   "slug": "fried-rice",
+   "category": "MAIN COURSE/DISH",
+   "name": "Fried Rice",
+   "price": 200.0,
+   "image": "assets/images/Fried-Rice.png",
+   "images": "[]",
+   "description": "Prepared fresh in our kitchen, served the Sai Inn way.",
+   "sort": 27
+  },
+  {
+   "slug": "coleslaw-salad",
+   "category": "SALADS",
+   "name": "Coleslaw Salad",
+   "price": null,
+   "image": "assets/images/Coleslaw-salad.png",
+   "images": "[]",
+   "description": "Our Coleslaw Salad is crisp, fresh vegetables tossed to order with a light, house-made dressing.",
+   "sort": 51
+  },
+  {
+   "slug": "kachumbari",
+   "category": "SALADS",
+   "name": "Kachumbari",
+   "price": null,
+   "image": "assets/images/Kachumbari.png",
+   "images": "[]",
+   "description": "Our Kachumbari is crisp, fresh vegetables tossed to order with a light, house-made dressing.",
+   "sort": 52
+  },
+  {
+   "slug": "test-chapati-wrap",
+   "category": "Bites",
+   "name": "Test Chapati Wrap",
+   "price": 150.0,
+   "image": "uploads/aaa.jpg",
+   "images": "[\"uploads\\/aaa.jpg\",\"uploads\\/bbb.jpg\",\"uploads\\/67b830a28788dcdbe3924c71.jpg\"]",
+   "description": "Fresh chapati rolled with vegetables.",
+   "sort": 0
+  },
+  {
+   "slug": "sembe",
+   "category": "MAIN COURSE/DISH",
+   "name": "sembe",
+   "price": 400.0,
+   "image": "uploads/f356f04db70ddbbb195c0dab.jpg",
+   "images": "[\"uploads\\/f356f04db70ddbbb195c0dab.jpg\"]",
+   "description": "fresh from  corn seed ground into fine poweder that is cooked under boiling water until it becomes hard or soft depending on your likeness",
+   "sort": 21
+  }
+ ],
+ "gallery_items": [
+  {
+   "src": "assets/images/organized/rooms/single standard-1.jpg",
+   "category": "Rooms",
+   "caption": "",
+   "sort": 0
+  },
+  {
+   "src": "assets/images/organized/rooms/single standard-2.jpg",
+   "category": "Rooms",
+   "caption": "",
+   "sort": 1
+  },
+  {
+   "src": "assets/images/organized/rooms/single superior.jpg",
+   "category": "Rooms",
+   "caption": "",
+   "sort": 2
+  },
+  {
+   "src": "assets/images/organized/rooms/double standard-1.jpg",
+   "category": "Rooms",
+   "caption": "",
+   "sort": 3
+  },
+  {
+   "src": "assets/images/organized/rooms/double standard-2.jpg",
+   "category": "Rooms",
+   "caption": "",
+   "sort": 4
+  },
+  {
+   "src": "assets/images/organized/rooms/double standard-3.jpg",
+   "category": "Rooms",
+   "caption": "",
+   "sort": 5
+  },
+  {
+   "src": "assets/images/organized/rooms/double superior.jpg",
+   "category": "Rooms",
+   "caption": "",
+   "sort": 6
+  },
+  {
+   "src": "assets/images/organized/rooms/twin standard.jpg",
+   "category": "Rooms",
+   "caption": "",
+   "sort": 7
+  },
+  {
+   "src": "assets/images/organized/rooms/hero1.jpg",
+   "category": "Rooms",
+   "caption": "",
+   "sort": 8
+  },
+  {
+   "src": "assets/images/organized/rooms/hero2.jpg",
+   "category": "Rooms",
+   "caption": "",
+   "sort": 9
+  },
+  {
+   "src": "assets/images/organized/rooms/hero3.jpg",
+   "category": "Rooms",
+   "caption": "",
+   "sort": 10
+  },
+  {
+   "src": "assets/images/organized/rooms/hero4.jpg",
+   "category": "Rooms",
+   "caption": "",
+   "sort": 11
+  },
+  {
+   "src": "assets/images/organized/rooms/hero5.jpg",
+   "category": "Rooms",
+   "caption": "",
+   "sort": 12
+  },
+  {
+   "src": "assets/images/organized/home/home1.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 13
+  },
+  {
+   "src": "assets/images/organized/home/home2.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 14
+  },
+  {
+   "src": "assets/images/organized/home/home3.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 15
+  },
+  {
+   "src": "assets/images/organized/home/home4.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 16
+  },
+  {
+   "src": "assets/images/organized/home/home5.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 17
+  },
+  {
+   "src": "assets/images/organized/home/home6.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 18
+  },
+  {
+   "src": "assets/images/organized/home/home7.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 19
+  },
+  {
+   "src": "assets/images/organized/home/home8.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 20
+  },
+  {
+   "src": "assets/images/organized/home/home9.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 21
+  },
+  {
+   "src": "assets/images/organized/home/home10.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 22
+  },
+  {
+   "src": "assets/images/organized/home/home11.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 23
+  },
+  {
+   "src": "assets/images/organized/home/home12.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 24
+  },
+  {
+   "src": "assets/images/organized/home/home13.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 25
+  },
+  {
+   "src": "assets/images/organized/home/home14.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 26
+  },
+  {
+   "src": "assets/images/organized/home/home15.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 27
+  },
+  {
+   "src": "assets/images/organized/home/home16.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 28
+  },
+  {
+   "src": "assets/images/organized/home/home17.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 29
+  },
+  {
+   "src": "assets/images/organized/home/home18.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 30
+  },
+  {
+   "src": "assets/images/organized/home/amenities-restaurant.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 31
+  },
+  {
+   "src": "assets/images/organized/home/amenities-conference.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 32
+  },
+  {
+   "src": "assets/images/organized/home/amenities-solarium terrace.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 33
+  },
+  {
+   "src": "assets/images/entrance1-1024x768.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 34
+  },
+  {
+   "src": "assets/images/DSC_5895-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 35
+  },
+  {
+   "src": "assets/images/DSC_5926-1-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 36
+  },
+  {
+   "src": "assets/images/DSC_5890-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 37
+  },
+  {
+   "src": "assets/images/DSC_5826-1-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 38
+  },
+  {
+   "src": "assets/images/DSC_5829-1-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 39
+  },
+  {
+   "src": "assets/images/DSC_5837-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 40
+  },
+  {
+   "src": "assets/images/DSC_5862-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 41
+  },
+  {
+   "src": "assets/images/DSC_5765-1-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 42
+  },
+  {
+   "src": "assets/images/DSC_5758-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 43
+  },
+  {
+   "src": "assets/images/DSC_5922-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 44
+  },
+  {
+   "src": "assets/images/DSC_5876-1024x643.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 45
+  },
+  {
+   "src": "assets/images/DSC_5920-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 46
+  },
+  {
+   "src": "assets/images/DSC_5797-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 47
+  },
+  {
+   "src": "assets/images/DSC_5777-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 48
+  },
+  {
+   "src": "assets/images/DSC_5909-1-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 49
+  },
+  {
+   "src": "assets/images/DSC_5955-1024x683.jpg",
+   "category": "Around the Inn",
+   "caption": "",
+   "sort": 50
+  }
+ ],
+ "events": [
+  {
+   "name": "Bridal Parties",
+   "description": "A reception venue sized to your guest list for an invite only bridal party.",
+   "icon": "ring",
+   "image": "assets/images/events/bridal.jpg",
+   "sort": 0
+  },
+  {
+   "name": "Birthday Celebrations",
+   "description": "We help you plan a birthday at Sai Inn that will be remembered for a long time.",
+   "icon": "cake",
+   "image": "assets/images/events/birthday.jpg",
+   "sort": 1
+  },
+  {
+   "name": "Special Get Togethers",
+   "description": "For families, colleagues, club mates and any group that wants to meet over good food.",
+   "icon": "people",
+   "image": "assets/images/organized/home/amenities-solarium terrace.jpg",
+   "sort": 2
+  },
+  {
+   "name": "Banqueting",
+   "description": "A spectacular banquet that gives your ceremony or dinner a real focus.",
+   "icon": "cloche",
+   "image": "assets/images/organized/home/amenities-restaurant.jpg",
+   "sort": 3
+  },
+  {
+   "name": "Baby Showers",
+   "description": "We keep your preferences in mind and pick a space that fits the activities you planned.",
+   "icon": "gift",
+   "image": "assets/images/events/baby-shower.jpg",
+   "sort": 4
+  },
+  {
+   "name": "Corporate Events",
+   "description": "Round tables, team building, conferences and retreats that help companies meet their goals.",
+   "icon": "briefcase",
+   "image": "assets/images/organized/home/amenities-conference.jpg",
+   "sort": 5
+  }
+ ],
+ "testimonials": [
+  {
+   "text": "It's price friendly, extremely clean and with friendly and courteous staff. We were served nice food for dinner and breakfast was served very early.",
+   "name": "Paul Kamya",
+   "role": "Businessman",
+   "stars": 5,
+   "avatar": "assets/images/Paul-Kamya.png",
+   "sort": 0
+  },
+  {
+   "text": "Very good service, quiet place, superb food and good ambience. Highly recommended to anyone in Eldoret town. Thank you!",
+   "name": "Victor Njom",
+   "role": "Business",
+   "stars": 5,
+   "avatar": "assets/images/Victor-Njom.png",
+   "sort": 2
+  },
+  {
+   "text": "A beautiful experience.",
+   "name": "Everlyne Cherobon",
+   "role": "Admin",
+   "stars": 5,
+   "avatar": "assets/images/Everlyne-cherobon.png",
+   "sort": 1
+  },
+  {
+   "text": "the place is so cool. nothing beats their dedicated staff who ensured I had everything I wwanted. talk about their rooms, so warm, nice and warm showers, beds, everything even the foods which were so delicious all at friendly prices",
+   "name": "brian mwangi",
+   "role": "",
+   "stars": 5,
+   "avatar": "uploads/29b48d0708f955d29e210f57.jpg",
+   "sort": 3
+  }
+ ],
+ "offers": [
+  {
+   "title": "10% off for new visitors",
+   "badge": "exciting deals",
+   "text": "Okay, I don't know why you keep messing this up, but the moment does not resemble anything like the journal. The journal one is good, and uh, I see that you tried to upload something in the journal, but uh, the cards are also still empty, so there is nothing actually there. I see only multitest, the date, an X there, and read, read notes. I don't see what is inside it. So that means there could st",
+   "code": "NEW DEALS",
+   "discount_pct": 10,
+   "active": 1,
+   "sort": 0,
+   "image": "uploads/c12dc31be4a2b9adae11658d.png"
+  }
+ ],
+ "journal_posts": [
+  {
+   "title": "Hotels in Eldoret Town",
+   "excerpt": "What to look for when picking a base in the City of Champions, from location to the kitchen.",
+   "body": "Eldoret sits high on the Uasin Gishu plateau, and it is where most of Kenya's athletes train. When you are looking for a hotel here, think about what your day looks like. Are you catching an early flight from Eldoret International Airport? Coming for a conference in the CBD? Then location is everything. Sai Inn sits at Annex Jamboni, off the Eldoret-Nairobi Highway, a short drive from the airport and minutes from town. Quiet grounds, safe parking and a restaurant that serves from our own farm. A good hotel in Eldoret should also give you a real breakfast. Ours is included with every room, bed and breakfast, and the restaurant serves from 3:30 pm to 9:00 pm every day. Rooms range from Single Standard to Double Superior, and every room has free Wi-Fi, hot showers and workspace. If you are planning an event, our conference room takes 3 to 50 people.",
+   "image": "assets/images/DSC_5955-11-1024x683.jpg",
+   "images": "[]",
+   "sort": 1
+  },
+  {
+   "title": "The Best Hotel in Eldoret Town",
+   "excerpt": "Comfort, good food, quiet surroundings and a location close to everything that matters.",
+   "body": "Calling any hotel the best is a big claim, so we prefer to show you what makes a stay at Sai Inn different. First, the food. We grow much of our own produce on the farm, and the kitchen serves it fresh. That is rare in town. Second, the quiet. Our compound sits just off the highway, but once you are inside you get gardens, a solarium and a terrace where evenings slow down. Third, the people. From the first phone call to checkout, reception is available 24/7 and every booking gets a confirmation call. Rooms are bed and breakfast with free Wi-Fi, hot showers and workspace, from KSh 3,500 a night. Come see for yourself, and bring your camera. The moments page is waiting for your pictures.",
+   "image": "assets/images/DSC_5955-1024x683.jpg",
+   "images": "[]",
+   "sort": 2
+  },
+  {
+   "title": "Eating Well in Eldoret",
+   "excerpt": "Fresh from our own farm to your plate. How the Sai Inn kitchen thinks about food.",
+   "body": "The best meals start before the kitchen. Ours start on the farm, where most of our vegetables are grown, and that changes everything about how the food tastes. The menu runs from light bites to full main courses, and the cold drinks list covers every kind of day, hot or rainy.\n\nOrdering is simple. The restaurant serves from 3:30 pm to 9:00 pm every day, and you can have your meal in the restaurant, on the solarium terrace, or delivered to your room. Bed and breakfast guests get breakfast as part of their stay, which means you never start a day in Eldoret hungry.\n\nIf you are planning a party or a meeting, the kitchen caters for the conference room too, from tea and snacks to full banquets. Tell the events team what you have in mind and they will build a menu around it.",
+   "image": "assets/images/organized/home/amenities-restaurant.jpg",
+   "images": "[]",
+   "sort": 3
+  },
+  {
+   "title": "Meetings in the City of Champions",
+   "excerpt": "How to run a meeting people actually enjoy, and what our conference room brings to it.",
+   "body": "Most meetings fail before the first agenda item, and the room is usually why. Bad light, dead air, no coffee. Our conference room was set up the other way round. It takes between 3 and 50 people, gets warm natural light through the day, and comes with audiovisual facilities and fast internet for presentations.\n\nThe secret is the food. Full catering comes from our on-site restaurant, so the team stays sharp from the morning tea break to the closing session. The inn sits in a quiet part of town just off the highway, so there is parking for everyone and no traffic noise in the middle of your slide deck.\n\nFrom board meetings to seminars, the events team handles the details and you run the day. New visitors get 15% off, so your first meeting here is an easy decision.",
+   "image": "assets/images/organized/home/amenities-conference.jpg",
+   "images": "[]",
+   "sort": 4
+  },
+  {
+   "title": "Weekend Road Trips from Eldoret",
+   "excerpt": "The inn is the perfect base for day trips. Here is where our guests drive on weekends.",
+   "body": "Eldoret is more than a stopover. Park your car at the inn and the whole western highlands open up. Chepkit Falls is a 20 minute drive, and the scenic Kerio Valley viewpoint a little further. Mt. Elgon Game Reserve and Kakamega Forest both make serious day trips, with the inn waiting when you get back.\n\nFor the longer drives, start early and come back to a hot shower and dinner in the restaurant. We will keep your parking spot and your room ready. Guests on bed and breakfast never have to worry about where the first meal comes from, which leaves more time for the road.\n\nTell the reception where you are headed and they will help you plan the route, the stops, and what time to leave. That is what a home base is for.",
+   "image": "assets/images/DSC_5920-1024x683.jpg",
+   "images": "[]",
+   "sort": 5
+  },
+  {
+   "title": "nothing beats our spaghetti bolognese",
+   "excerpt": "fully prepared in our kitchen",
+   "body": "Nothing beats our spaghetti bolognese. We start by slowly frying finely chopped onion, carrot and garlic in a little oil until soft and fragrant, then add minced beef and let it brown properly so every bite carries deep, savory flavor. Tomato paste and ripe chopped tomatoes go in next, with oregano, salt and pepper, and the sauce simmers gently for at least thirty minutes until it turns rich, thick and glossy. Meanwhile, our spaghetti is boiled in well-salted water until perfectly al dente, then tossed with a splash of its own cooking water so the sauce clings to every strand. We serve it piping hot, topped with freshly grated cheese, and it's a comforting plate that keeps our guests coming back for more.",
+   "image": "uploads/808e9ec219a2ebc5f21e6f26.png",
+   "images": "[\"uploads\\/808e9ec219a2ebc5f21e6f26.png\"]",
+   "sort": 0
+  }
+ ],
+ "announcements": [
+  {
+   "title": "Closed for maintenance on 20 October",
+   "body": "Our kitchen and restaurant will be closed on Tuesday 20 October while we service the equipment.  Rooms stay open as usual and reception is staffed around the clock. We are sorry for any inconvenience.",
+   "kind": "Notice",
+   "images": "[\"uploads\\/c12dc31be4a2b9adae11658d.png\"]",
+   "active": 1,
+   "pinned": 1,
+   "starts_on": "",
+   "ends_on": "2026-10-20",
+   "sort": 0
+  },
+  {
+   "title": "Staying three nights or more? Dinner is on us",
+   "body": "Guests staying three nights or longer get a complimentary dinner for two at our restaurant, and guests staying five nights or longer get 10% off the room rate.  Just mention it at reception when you check in.",
+   "kind": "Guest perk",
+   "images": "[]",
+   "active": 1,
+   "pinned": 0,
+   "starts_on": "",
+   "ends_on": "",
+   "sort": 1
+  }
+ ]
+}

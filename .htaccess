@@ -1,0 +1,39 @@
+# Sai Inn .htaccess (Apache production: Render, cPanel)
+
+Options -Indexes
+DirectoryIndex index.html
+
+# harden the app files
+<FilesMatch "\.(sqlite|sqlite3|db|md|json|lock)$">
+  Require all denied
+</FilesMatch>
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # never serve dotfiles or the data folder
+  RewriteRule (^|/)\.(?!well-known) - [F]
+  RewriteRule ^data/ - [F]
+  RewriteRule ^api/secrets\.php$ - [F]
+  # no PHP execution inside uploads
+  RewriteRule ^uploads/.*\.php$ - [F]
+  # clean URLs: /rooms serves rooms.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !^/api/
+  RewriteRule ^([a-z0-9\-]+)/?$ $1.html [L,QSA]
+</IfModule>
+
+# security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# php settings
+<IfModule mod_php.c>
+  php_flag display_errors off
+  php_value upload_max_filesize 6M
+  php_value post_max_size 8M
+</IfModule>

@@ -1,0 +1,13 @@
+# Render blueprint: push to GitHub and this deploys by itself.
+# Service name here becomes the URL: https://sai-inn.onrender.com
+services:
+  - type: web
+    name: sai-inn
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: SAI_ADMIN_USER
+        value: admin
+      # set SAI_ADMIN_PASSWORD in the Render dashboard (secret), not here

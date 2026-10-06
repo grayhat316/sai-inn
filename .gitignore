@@ -1,0 +1,18 @@
+# runtime data: the database holds bookings and orders, uploads hold guest photos.
+# Both live on the server, never in the repository.
+data/
+uploads/
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+
+# secrets
+api/secrets.php
+
+# local tooling
+tests/
+.hermes/
+.venv/
+__pycache__/
+*.zip

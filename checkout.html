@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | Sai Inn Restaurant</title>
+  <meta name="description" content="Complete your order from the Sai Inn restaurant.">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20261003j">
+  <link rel="stylesheet" href="css/inner.css?v=20261003j">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hotel",
+    "name": "Sai Inn Hotel",
+    "description": "Rooms, restaurant and event spaces in Eldoret, Kenya.",
+    "telephone": "+254726071111",
+    "email": "info@sai.ke",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Annex Jamboni, off Eldoret-Nairobi Highway",
+      "addressLocality": "Eldoret",
+      "addressCountry": "KE"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 0.5143, "longitude": 35.2698 }
+  }
+  </script>
+</head>
+<body class="">
+
+<!-- header -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index" aria-label="Sai Inn Hotel home">
+      <img src="assets/images/logoisa-1024x275.png" alt="Sai Inn">
+    </a>
+    <nav class="nav-desktop" aria-label="Main">
+      <a href="index">Home</a><a href="rooms">Rooms</a><a href="dining" class="active">Dining &amp; Menu</a><a href="events">Events</a><a href="gallery">Gallery</a><a href="moments">Moments</a><a href="journal">Journal</a><a href="about">About</a><a href="contact">Contact</a><a href="account">Account</a>
+    </nav>
+    <div class="header-cta">
+      <a class="header-phone" href="tel:+254726071111">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0726 071 111
+      </a>
+      <a class="btn btn-gold" href="book">Reserve</a>
+      <button class="nav-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- announcement strip (pinned admin notices) -->
+<div class="ann-strip" id="ann-strip" hidden></div>
+
+<!-- mobile menu -->
+<div class="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-head">
+    <span class="brand-plate"><img src="assets/images/logoisa.png" alt="Sai Inn"></span>
+    <button class="close-btn" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu-links" aria-label="Mobile">
+    <a href="index">Home <span>01</span></a><a href="rooms">Rooms <span>02</span></a><a href="dining">Dining &amp; Menu <span>03</span></a><a href="events">Events <span>04</span></a><a href="gallery">Gallery <span>05</span></a><a href="moments">Moments <span>06</span></a><a href="journal">Journal <span>07</span></a><a href="about">About <span>08</span></a><a href="contact">Contact <span>09</span></a><a href="account">Account <span>10</span></a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a class="btn btn-gold" href="book">Reserve a Room</a>
+    <a class="btn btn-ghost" href="account">My Account</a>
+    <a class="btn btn-ghost" href="tel:+254726071111">Call 0726 071 111</a>
+  </div>
+</div>
+<div class="menu-backdrop" aria-hidden="true"></div>
+
+<main>
+
+
+  <section class="section">
+    <div class="container" id="checkout-root">
+      <div class="sec-head">
+        <span class="eyebrow">Restaurant &amp; Menu</span>
+        <h2>Checkout</h2>
+        <p>Fill in your details and send the order. We will call to confirm.</p>
+      </div>
+      <div id="checkout-wrap"></div>
+    </div>
+  </section>
+</main>
+
+<!-- footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-plate"><img src="assets/images/logoisa.png" alt="Sai Inn"></span>
+        <p>A haven for relaxation, tranquility and culinary experience.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.17 2.1 15.87 2 14.5 2A4.5 4.5 0 0 0 10 6.5V9.5H7v4h3V22h4v-8.5z"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.74.33-1.54.55-2.38.65a4.2 4.2 0 0 0 1.82-2.3c-.8.48-1.7.82-2.64 1a4.13 4.13 0 0 0-7.04 3.76A11.7 11.7 0 0 1 3.4 4.74a4.13 4.13 0 0 0 1.28 5.52c-.68-.02-1.32-.2-1.88-.52v.05c0 2 1.42 3.68 3.3 4.06-.6.17-1.24.2-1.9.07.54 1.68 2.1 2.9 3.94 2.94A8.28 8.28 0 0 1 2 18.55a11.68 11.68 0 0 0 6.32 1.85c7.58 0 11.72-6.28 11.72-11.72v-.53c.8-.59 1.5-1.31 2.05-2.15z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.7 3.7 0 0 1-.9 1.38c-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.15a4 4 0 1 1 0-7.98 4 4 0 0 1 0 7.98zM19.85 5.6a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></a>
+          <a href="#" aria-label="Youtube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="index">Home</a></li>
+          <li><a href="rooms">Rooms</a></li>
+          <li><a href="dining">Dining &amp; Menu</a></li>
+          <li><a href="events">Events</a></li>
+          <li><a href="gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>The Inn</h3>
+        <ul>
+          <li><a href="moments">Moments</a></li>
+          <li><a href="journal">Journal</a></li>
+          <li><a href="about">About Us</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Guest Services</h3>
+        <ul>
+          <li><a href="book">Reserve a Room</a></li>
+          <li><a href="account">My Account &amp; Bookings</a></li>
+          <li><a href="privacy">Privacy Policy</a></li>
+          <li><a href="terms">Terms</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Our Contacts</h3>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+254726071111">+254 726 071 111</a>
+        </div>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <a href="mailto:info@sai.ke">info@sai.ke</a>
+        </div>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span>Reception open 24/7</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3>Address</h3>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Annex Jamboni, off Eldoret-Nairobi Highway, Eldoret, Kenya</span>
+        </div>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 9h1m4 0h1M9 13h1m4 0h1M10 21v-4h4v4"/></svg>
+          <span>P.O. Box, Eldoret</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> Sai Inn Hotel. All rights reserved.</span>
+      <div class="legal">
+        <a href="privacy">Privacy Policy</a>
+        <a href="terms">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- chat fab -->
+<div class="chat-fab" id="chat-fab">
+  <div class="chat-fab-menu" id="chat-fab-menu" hidden>
+    <a class="chat-opt chat-wa" href="https://wa.me/254726071111" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.8-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.4.9-.9 1.3-.7 1.7.8 1.3 1.7 2.1 3 2.8.2.1.4.1.5-.1.1-.1.6-.7.8-.9.2-.2.3-.2.6-.1l1.8.8c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg>
+      Chat on WhatsApp
+    </a>
+    <a class="chat-opt chat-call" href="tel:+254726071111">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call 0726 071 111
+    </a>
+  </div>
+  <button class="chat-fab-main" id="chat-fab-main" aria-label="Contact us">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </button>
+</div>
+
+<!-- lightbox -->
+<div class="lightbox" aria-hidden="true">
+  <button class="lb-close" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <button class="lb-prev" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <img src="" alt="">
+  <span class="lb-caption" hidden></span>
+  <button class="lb-next" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+  <span class="lb-count"></span>
+</div>
+
+
+  <a class="cart-fab" href="order" aria-label="View order">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    <span class="badge">0</span>
+  </a>
+  <div class="toast" role="status" aria-live="polite"></div>
+<script src="js/data.js?v=20261003j"></script>
+<script src="js/api-sync.js?v=20261003j"></script>
+<script src="js/main.js?v=20261003j"></script>
+<script src="js/announcements.js?v=20261003j"></script>
+<script src="js/cart.js?v=20261003j"></script>
+<script src="js/checkout.js?v=20261003j"></script>
+</body>
+</html>
