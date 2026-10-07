@@ -32,7 +32,10 @@ if (getenv("RENDER")) {
 /* is this the laptop copy reached through a tunnel? */
 $host = $_SERVER["HTTP_HOST"] ?? "unknown";
 $forwarded = $_SERVER["HTTP_X_FORWARDED_HOST"] ?? "";
-if (str_contains($forwarded, "trycloudflare.com")) {
+if (str_contains($host, "trycloudflare.com") || str_contains($forwarded, "trycloudflare.com")) {
+    $env = "Your own machine, reached through a Cloudflare tunnel";
+    $disk = "permanent for as long as your laptop is on";
+} elseif (!empty($_SERVER["HTTP_CF_RAY"]) && str_contains($host, "trycloudflare.com")) {
     $env = "Your own machine, reached through a Cloudflare tunnel";
     $disk = "permanent for as long as your laptop is on";
 }

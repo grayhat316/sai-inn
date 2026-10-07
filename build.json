@@ -1,7 +1,7 @@
 {
   "app": "Sai Inn Hotel website",
-  "build": "2026-10-07 14:27",
-  "commit": "e8188ad",
-  "pushed": "2026-10-07 14:27",
-  "change": "Add a where-am-I report and a build stamp, so any copy can say what it is and which build it runs"
+  "build": "2026-10-07 14:29",
+  "commit": "067be40",
+  "pushed": "2026-10-07 14:29",
+  "change": "Identify the tunnel copy correctly and stamp the local build"
 }
