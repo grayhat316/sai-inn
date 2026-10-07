@@ -1,0 +1,7 @@
+{
+  "app": "Sai Inn Hotel website",
+  "build": "2026-10-07 14:27",
+  "commit": "e8188ad",
+  "pushed": "2026-10-07 14:27",
+  "change": "Add a where-am-I report and a build stamp, so any copy can say what it is and which build it runs"
+}

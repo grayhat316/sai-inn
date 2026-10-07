@@ -415,11 +415,35 @@
         d.recent.map(function (b) {
           return '<tr><td>' + esc(b.ref) + '</td><td>' + esc(b.name) + '</td><td>' + esc(b.room_type || "") + '</td>' +
             '<td>' + esc(b.checkin) + ' to ' + esc(b.checkout) + '</td><td><span class="badge badge-' + esc(b.status) + '">' + esc(b.status) + '</span></td></tr>';
-        }).join("") + '</tbody></table></div>';
+        }).join("") + '</tbody></table></div>' +
+        '<div class="card"><h2>Where this dashboard is running</h2>' +
+        '<div id="site-info"><p class="f-hint">Checking</p></div></div>';
     }).then(function () {
       document.querySelectorAll("[data-goto]").forEach(function (b) {
         b.addEventListener("click", function () { go(b.dataset.goto, b.dataset.arg); });
       });
+      fetch("../api/whereami.php", { credentials: "same-origin" })
+        .then(function (r) { return r.json(); })
+        .then(function (w) {
+          var box = document.getElementById("site-info");
+          if (!box || !w || !w.ok) return;
+          var rows = [
+            ["Runs on", w.runs_on],
+            ["Disk", w.disk],
+            ["Build", w.build.stamp + (w.build.commit && w.build.commit !== "unknown" ? " · " + w.build.commit : "")],
+            ["Server", w.server.software + ", PHP " + w.server.php + (w.server.https === "yes" ? ", HTTPS" : "")],
+            ["Content", "rooms " + w.content.rooms + ", dishes " + w.content.menu_items + ", photos " + w.content.gallery_items +
+              ", offers " + w.content.offers + ", notices " + w.content.announcements],
+            ["Guest records", "bookings " + w.guest_records.bookings + ", orders " + w.guest_records.food_orders +
+              ", messages " + w.guest_records.messages + ", moments " + w.guest_records.moments],
+            ["Database", Math.round(w.database.size / 1024) + " KB, written " + w.database.created]
+          ];
+          box.innerHTML = rows.map(function (r) {
+            return '<div class="m-detail-row"><span>' + esc(r[0]) + '</span><span>' + esc(String(r[1])) + '</span></div>';
+          }).join("") +
+          '<p class="f-hint">The same details are at <code>' + esc(w.url_you_used) + '/api/whereami.php</code> on any copy of the site.</p>';
+        })
+        .catch(function () {});
     });
   }
 
@@ -1074,6 +1098,9 @@
       var c = d.content || {};
       return '<div class="page-head"><h1>Content</h1>' +
         '<div class="actions"><button class="btn btn-gold" id="save-content">Save all</button></div></div>' +
+        '<div class="card"><h2>Keep your content safe</h2>' +
+        '<p class="f-hint">Offers, notices, rooms and the rest live in the database of this website. On hosting with a temporary disk (the free Render plan), a redeploy starts from the snapshot that was committed with the code, so anything added here since then is lost. Before a redeploy, download the snapshot and commit it - or make the changes on your own machine and push.</p>' +
+        '<p><a class="btn btn-line" href="../api/admin/export.php" download>Download content snapshot</a></p></div>' +
         '<div class="card">' +
         CONTENT_FIELDS.map(function (f) {
           var isLong = f[0].indexOf("_1") > 0 || f[0].indexOf("_2") > 0 || f[0].indexOf("_3") > 0 ||

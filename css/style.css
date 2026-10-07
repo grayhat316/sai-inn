@@ -831,8 +831,19 @@ p { color: var(--ink-soft); }
 .step-line span:first-child { font-weight: 700; color: var(--ink); }
 
 @media (min-width: 1100px) {
-  #home-offers .post-card, #home-announcements .post-card { grid-template-columns: 380px 1fr; gap: 2.2rem; }
-  #home-offers .post-card .thumb img { max-height: 320px; }
+  /* a single offer or notice gets the whole width, photo beside the text */
+  #home-offers .post-card:only-child, #home-announcements .post-card:only-child { grid-template-columns: 440px 1fr; gap: 2.4rem; }
+  #home-offers .post-card:only-child .thumb img { max-height: 340px; }
+}
+
+/* two or more: cards sit side by side, photo on top */
+@media (min-width: 900px) {
+  #home-offers, #home-announcements { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; align-items: stretch; }
+  #home-offers .post-card, #home-announcements .post-card { margin-bottom: 0; padding: 0; grid-template-columns: 1fr; gap: 0; overflow: hidden; }
+  #home-offers .post-card:not(:only-child) > div, #home-announcements .post-card:not(:only-child) > div { padding: 1.1rem 1.35rem 1.35rem; }
+  #home-offers .post-card:not(:only-child) .thumb, #home-announcements .post-card:not(:only-child) .thumb { border-radius: 0; }
+  #home-offers .post-card:not(:only-child) .thumb img, #home-announcements .post-card:not(:only-child) .thumb img { aspect-ratio: 16 / 9; }
+  #home-offers .post-card:only-child, #home-announcements .post-card:only-child { grid-column: 1 / -1; }
 }
 
 /* offers popup */
