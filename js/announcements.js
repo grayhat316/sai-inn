@@ -23,45 +23,6 @@
     return m ? Number(parts[2]) + " " + m : "";
   };
 
-  /* pinned strip (every page) */
-  const strip = document.getElementById("ann-strip");
-  if (strip) {
-    let dismissed = {};
-    try {
-      const raw = JSON.parse(localStorage.getItem("sai_ann_dismiss") || "{}");
-      const today = new Date().toISOString().slice(0, 10);
-      if (raw && raw.day === today && Array.isArray(raw.ids)) {
-        raw.ids.forEach((id) => { dismissed[id] = true; });
-      }
-    } catch (e) { dismissed = {}; }
-
-    const pinned = items.filter((a) => Number(a.pinned) === 1 && !dismissed[a.id]);
-    if (pinned.length) {
-      const a = pinned[0];
-      strip.hidden = false;
-      strip.innerHTML =
-        '<div class="container ann-strip-inner">' +
-          '<span class="ann-strip-icon">' + (ICONS[a.kind] || ICONS.Notice) + '</span>' +
-          '<span class="ann-strip-txt"><strong>' + esc(a.title) + '</strong>' +
-            (a.body ? '<span class="ann-strip-body">' + esc(a.body.slice(0, 120)) + (a.body.length > 120 ? "..." : "") + '</span>' : "") +
-          '</span>' +
-          '<a class="ann-strip-link" href="notice?id=' + a.id + '">Read</a>' +
-          '<button class="ann-strip-x" type="button" aria-label="Dismiss announcement">&times;</button>' +
-        '</div>';
-      strip.querySelector(".ann-strip-x").addEventListener("click", () => {
-        strip.hidden = true;
-        try {
-          const today = new Date().toISOString().slice(0, 10);
-          let ids = [];
-          const raw = JSON.parse(localStorage.getItem("sai_ann_dismiss") || "{}");
-          if (raw && raw.day === today && Array.isArray(raw.ids)) ids = raw.ids;
-          if (ids.indexOf(a.id) === -1) ids.push(a.id);
-          localStorage.setItem("sai_ann_dismiss", JSON.stringify({ day: today, ids: ids }));
-        } catch (e) {}
-      });
-    }
-  }
-
   /* home page section */
   const section = document.getElementById("announcements");
   const grid = document.getElementById("home-announcements");

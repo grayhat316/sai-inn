@@ -285,6 +285,7 @@
 
 /* gallery */
 .gallery-grid { columns: 3; column-gap: 1.2rem; }
+@media (min-width: 1200px) { .gallery-grid { columns: 4; } }
 .gallery-grid a { display: block; margin-bottom: 1.2rem; border-radius: var(--radius-md); overflow: hidden; position: relative; break-inside: avoid; cursor: zoom-in; }
 .gallery-grid .g-photo { overflow: hidden; border-radius: var(--radius-md); position: relative; display: block; }
 .gallery-grid .g-photo img { width: 100%; transform: translateY(var(--gshift, 0px)) scale(1.14); transition: transform 0.5s var(--ease-out); will-change: transform; }
