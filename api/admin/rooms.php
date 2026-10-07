@@ -1,7 +1,5 @@
 <?php
-/* Sai Inn admin rooms CRUD.
-   GET  ?action=list
-   POST {action:save, id?, name, price, description, amenities[], image, gallery[], sort} */
+/* admin rooms */
 
 require_once __DIR__ . "/guard.php";
 

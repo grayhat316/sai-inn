@@ -19,9 +19,9 @@
     pickList: document.getElementById("room-pick-list")
   };
 
-  /* preselect from ?room= if it exists */
+  /* a room is only chosen when the guest picked one or arrived with ?room= */
   const params = new URLSearchParams(location.search);
-  let selectedRoom = SAI.rooms.find((r) => r.name === params.get("room")) || SAI.rooms[0];
+  let selectedRoom = SAI.rooms.find((r) => r.name === params.get("room")) || null;
 
   /* offer from ?offer=CODE */
   const offerCode = (params.get("offer") || "").toUpperCase();
@@ -68,6 +68,18 @@
   }
 
   function renderSummary() {
+    if (!selectedRoom) {
+      els.summary.innerHTML =
+        '<div class="bk-body bk-empty">' +
+          '<h3>Choose your room</h3>' +
+          '<p>Pick a room below to see the price and your total' +
+            (offer ? ' with the ' + offer.discount_pct + '% offer applied' : '') + '.</p>' +
+          (offer ? '<div class="bk-chips"><span class="bk-chip gold">' + offer.discount_pct + '% off, code ' + offerCode + '</span></div>' : "") +
+        '</div>';
+      els.nights.textContent = nights() === 1 ? "1 night" : nights() + " nights";
+      els.estimate.textContent = "";
+      return;
+    }
     const n = nights();
     const pct = discountPct();
     const raw = selectedRoom.price * n;
@@ -121,7 +133,7 @@
       const pic = img
         ? '<img src="' + img + '" alt="' + r.name + '">'
         : '<span class="rp-noimg">' + r.name.charAt(0) + '</span>';
-      return '<button type="button" class="room-pick-card' + (r.id === selectedRoom.id ? " selected" : "") + '" data-id="' + r.id + '">' +
+      return '<button type="button" class="room-pick-card' + (selectedRoom && r.id === selectedRoom.id ? " selected" : "") + '" data-id="' + r.id + '">' +
         pic +
         '<span class="rp-info"><span class="nm">' + r.name + '</span><br><span class="pr">' + money(r.price) + ' / night</span></span>' +
         '<span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg></span>' +
@@ -158,6 +170,12 @@
   }
 
   document.getElementById("bk-next-1").addEventListener("click", () => {
+    if (!selectedRoom) {
+      const list = document.getElementById("room-pick-list") || els.pickList;
+      if (list) list.scrollIntoView({ behavior: "smooth", block: "center" });
+      els.estimate.textContent = "Choose a room to continue.";
+      return;
+    }
     if (!els.checkin.value || !els.checkout.value) {
       els.checkin.focus();
       return;
@@ -170,6 +188,11 @@
   });
   document.getElementById("bk-back-2").addEventListener("click", () => showPanel(1));
   document.getElementById("bk-next-2").addEventListener("click", () => {
+    if (!selectedRoom) {
+      showPanel(1);
+      els.estimate.textContent = "Choose a room to continue.";
+      return;
+    }
     if (!els.name.value.trim() || !els.phone.value.trim()) {
       els.name.focus();
       return;
@@ -199,6 +222,11 @@
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    if (!selectedRoom) {
+      showPanel(1);
+      els.estimate.textContent = "Choose a room before sending your request.";
+      return;
+    }
     const submitBtn = document.getElementById("bk-submit");
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending";

@@ -21,7 +21,7 @@
     t._timer = setTimeout(function () { t.classList.remove("show"); }, 3200);
   }
 
-  /* ---------- modal ---------- */
+  /* modal */
   function openModal(title, bodyHTML, onSubmit) {
     var backdrop = document.getElementById("modal-backdrop");
     var modal = document.getElementById("modal");
@@ -47,7 +47,7 @@
     });
   }
 
-  /* ---------- api ---------- */
+  /* api */
   async function api(path, query, body, formData) {
     var qs = new URLSearchParams(query || {}).toString();
     var url = "../api/admin/" + path + (qs ? "?" + qs : "");
@@ -80,7 +80,7 @@
     return data;
   }
 
-  /* ---------- login page ---------- */
+  /* login page */
   var loginForm = document.getElementById("login-form");
   if (loginForm) {
     /* show / hide password on the sign-in field */
@@ -95,10 +95,8 @@
       });
     }
 
-    /* ---------- first-time setup ---------- */
-    /* A deploy that was never given an admin password boots with no
-       administrator at all. In that case the page offers to create one,
-       and only while no administrator exists. */
+    /* first-time setup */
+    /* no admin password: the login page creates the first administrator */
     var setupForm = document.getElementById("setup-form");
     var setupEye = document.getElementById("su-eye");
     var setupPass = document.getElementById("su-pass");
@@ -219,7 +217,7 @@
     return;
   }
 
-  /* ---------- app shell ---------- */
+  /* app shell */
   var view = document.getElementById("view");
   if (!view) return;
 
@@ -327,7 +325,7 @@
     });
   }
 
-  /* ---------- upload helper ---------- */
+  /* upload helper */
   function uploadZone(onUpload, accept) {
     var dz = document.createElement("div");
     dz.className = "dropzone";
@@ -360,7 +358,7 @@
     return dz;
   }
 
-  /* ---------- dashboard ---------- */
+  /* dashboard */
   function go(view, arg) {
     if (view === "bookings") {
       bookingFilter = arg || "";
@@ -425,7 +423,7 @@
     });
   }
 
-  /* ---------- bookings ---------- */
+  /* bookings */
   var bookingFilter = "";
   var bookingCache = [];
   function bookingDetail(idx) {
@@ -496,7 +494,7 @@
     });
   }
 
-  /* ---------- rooms ---------- */
+  /* rooms */
   function viewRooms() {
     render(async function () {
       var d = await api("rooms.php", { action: "list" });
@@ -590,7 +588,7 @@
     }).catch(function (e) { toast(e.message, "err"); });
   }
 
-  /* ---------- menu ---------- */
+  /* menu */
   function viewMenu() {
     render(async function () {
       var d = await api("menu.php", { action: "list" });
@@ -697,7 +695,7 @@
     }).catch(function (e) { toast(e.message, "err"); });
   }
 
-  /* ---------- gallery ---------- */
+  /* gallery */
   function galModal(id) {
     api("gallery.php", { action: "list" }).then(function (d) {
       var g = d.items.find(function (x) { return Number(x.id) === id; }) || {};
@@ -779,7 +777,7 @@
     });
   }
 
-  /* ---------- events ---------- */
+  /* events */
   function viewEvents() {
     render(async function () {
       var d = await api("events.php", { action: "list" });
@@ -846,7 +844,7 @@
     }).catch(function (e) { toast(e.message, "err"); });
   }
 
-  /* ---------- testimonials ---------- */
+  /* testimonials */
   function viewTestimonials() {
     render(async function () {
       var d = await api("testimonials.php", { action: "list" });
@@ -914,7 +912,7 @@
     }).catch(function (e) { toast(e.message, "err"); });
   }
 
-  /* ---------- food orders ---------- */
+  /* food orders */
   var orderFilter = "";
   var orderCache = [];
   function viewOrders() {
@@ -981,7 +979,7 @@
     });
   }
 
-  /* ---------- inbox ---------- */
+  /* inbox */
   var inboxTab = "messages";
   var inboxCache = [];
   function inboxDetail(idx) {
@@ -1050,7 +1048,7 @@
     });
   }
 
-  /* ---------- content ---------- */
+  /* content */
   var CONTENT_FIELDS = [
     ["hero_eyebrow", "Hero eyebrow (small line above the title)"],
     ["hero_title_1", "Hero title, first line"],
@@ -1097,7 +1095,7 @@
     });
   }
 
-  /* ---------- settings ---------- */
+  /* settings */
   function viewSettings() {
     render(async function () {
       return '<div class="page-head"><h1>Settings</h1></div>' +
@@ -1131,7 +1129,7 @@
     });
   }
 
-  /* ---------- moments ---------- */
+  /* moments */
   function viewMoments() {
     render(async function () {
       var d = await api("moments.php", { action: "list" });
@@ -1179,7 +1177,7 @@
     });
   }
 
-  /* ---------- offers ---------- */
+  /* offers */
   function offerModal(id) {
     api("offers.php", { action: "list" }).then(function (d) {
       var o = d.offers.find(function (x) { return Number(x.id) === id; }) || {};
@@ -1268,7 +1266,7 @@
     });
   }
 
-  /* ---------- announcements ---------- */
+  /* announcements */
   function announcementModal(id) {
     api("announcements.php", { action: "list" }).then(function (d) {
       var a = (d.announcements || []).find(function (x) { return Number(x.id) === id; }) || {};
@@ -1458,7 +1456,7 @@
     });
   }
 
-  /* ---------- journal ---------- */
+  /* journal */
   function journalModal(id) {
     api("journal.php", { action: "list" }).then(function (d) {
       var p = d.posts.find(function (x) { return Number(x.id) === id; }) || {};
@@ -1545,7 +1543,7 @@
     });
   }
 
-  /* ---------- accounts ---------- */
+  /* accounts */
   function viewAccounts() {
     render(async function () {
       var d = await api("accounts.php", { action: "list" });
@@ -1571,10 +1569,7 @@
     });
   }
 
-  /* ---------- router ----------
-     Every sidebar button needs its entry here: the click handler highlights the
-     tab first and then calls ROUTES[view](), so a missing entry leaves the panel
-     on the old view with no visible error. */
+  /* every sidebar button needs an entry here or its click goes nowhere */
   var ROUTES = {
     dashboard: viewDashboard,
     bookings: viewBookings,

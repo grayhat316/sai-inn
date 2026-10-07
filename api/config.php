@@ -4,8 +4,7 @@
 define("DB_DIR", dirname(__DIR__) . "/data");
 define("DB_FILE", DB_DIR . "/sai_inn.sqlite");
 
-/* sensitive values go in api/secrets.php, which is never committed.
-   copy secrets.example.php and fill it in for production. */
+/* secrets live in api/secrets.php, never committed */
 $secretsFile = __DIR__ . "/secrets.php";
 if (is_file($secretsFile)) {
     require_once $secretsFile;

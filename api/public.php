@@ -1,7 +1,5 @@
 <?php
-/* Sai Inn public content feed.
-   Returns whatever the admin has saved in the database. The front-end merges
-   this over its built-in defaults, and falls back to defaults when empty. */
+/* public content feed */
 
 require_once __DIR__ . "/db.php";
 

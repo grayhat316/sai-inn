@@ -1,6 +1,5 @@
 <?php
-/* Sai Inn admin image upload.
-   MIME sniffing + whitelist + random names + GD re-encode + no-exec dir. */
+/* admin image upload */
 
 require_once __DIR__ . "/guard.php";
 require_admin_write();

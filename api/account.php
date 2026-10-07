@@ -1,6 +1,5 @@
 <?php
-/* Sai Inn guest accounts: register, sign in, sign out, my account.
-   Loyalty: booking history by email or phone; discount tiers based on stays. */
+/* guest accounts: register, sign in, sign out, my account */
 
 require_once __DIR__ . "/helpers.php";
 sess_start();

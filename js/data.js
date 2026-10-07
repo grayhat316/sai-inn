@@ -1,7 +1,6 @@
 /* Sai Inn content data: single source of truth for the public site */
 
-/* resolve the site root from wherever this file was loaded, so assets work
-   under http and file:// and any mount point */
+/* site root, so assets resolve under http, file:// and any mount point */
 const SAI_ROOT = (function () {
   try {
     const s = document.currentScript.src;
@@ -13,9 +12,7 @@ const SAI_ROOT = (function () {
 const SAI_ASSET = function (p) { if (!p) return ""; return SAI_ROOT ? SAI_ROOT + "/" + p : p; };
 window.SAI_ASSET = SAI_ASSET;
 
-/* "Someone ordered X ago" social proof for dishes. Deterministic per dish + hour,
-   weighted by category popularity and time of day, so every visitor sees
-   the same story and it shifts naturally through the day. */
+/* recent-order line for dishes, stable per dish and per hour */
 (function () {
   function seed(str) {
     let h = 7;
@@ -46,9 +43,7 @@ window.SAI_ASSET = SAI_ASSET;
     const pop = POP[cat] || 0.45;
     const r = (seed(String(id) + "|" + hour) % 1000) / 1000; // 0..1, stable for the hour
     if (hour >= win[0] && hour < win[1]) {
-      /* daytime. Mains and cold drinks move fast, especially at the lunch and
-         dinner peaks; slow sellers can sit for a few hours but never longer
-         than this counter has actually been open today */
+      /* serving hours: mains move fast, slow sellers wait */
       const peak = (hour >= 12 && hour < 15) || (hour >= 18 && hour < 22);
       const fast = pop >= 0.85;
       const sinceOpen = Math.max(20, (hour - win[0]) * 60 + minutesNow);
@@ -61,9 +56,7 @@ window.SAI_ASSET = SAI_ASSET;
       const h2 = Math.round(mins / 60);
       return "Someone ordered " + (h2 === 1 ? "1 hour" : h2 + " hours") + " ago";
     }
-    /* outside this counter's hours: everything cools off.
-       10 hours only deep at night (23:00-05:00); before the counter opens the
-       gap counts from breakfast time; after it closes, up to 8 */
+    /* after closing: 10 hours only deep at night */
     const sinceEnd = ((hour - win[1]) + 24) % 24;
     let cap;
     if (hour >= 23 || hour < 5) {

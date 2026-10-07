@@ -1,6 +1,5 @@
 <?php
-/* Sai Inn admin: restore default content (rooms, menu, gallery, events,
-   testimonials) from api/seed-data.json. Replaces current content. */
+/* admin: restore the default content */
 
 require_once __DIR__ . "/guard.php";
 require_admin_write();

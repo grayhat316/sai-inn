@@ -1,7 +1,5 @@
 <?php
-/* Sai Inn bookings API.
-   POST  /api/bookings.php        create a booking request
-   GET   /api/bookings.php?ref=X  look up a booking by reference + phone */
+/* bookings API */
 
 require_once __DIR__ . "/helpers.php";
 sess_start();

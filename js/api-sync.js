@@ -1,6 +1,4 @@
-/* Sai Inn content sync: pulls admin-managed content from the API and merges
-   it over the built-in defaults. Falls back to defaults silently when the API
-   is unavailable (file:// preview) or empty (fresh database). */
+/* merge admin content over the built-in defaults */
 
 (function () {
   var data = null;

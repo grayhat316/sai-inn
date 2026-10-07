@@ -1,7 +1,5 @@
 <?php
-/* Sai Inn admin announcements: notices and news shown on the site.
-   An announcement can be pinned (shows as the strip under the header),
-   scheduled with dates, and carries any number of photos. */
+/* admin announcements: notices and news shown on the site */
 
 require_once __DIR__ . "/guard.php";
 

@@ -1,8 +1,5 @@
 <?php
-/* Sai Inn one-time admin setup.
-   Only runs when data/.setup_allowed exists (created deliberately by the
-   person deploying the site). After creating the first admin, the marker is
-   removed, so this endpoint can never be used again. */
+/* one-time admin setup */
 
 require_once __DIR__ . "/helpers.php";
 

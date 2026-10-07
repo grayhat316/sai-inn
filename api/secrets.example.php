@@ -1,6 +1,5 @@
 <?php
-/* Copy this to secrets.php and fill in real values before going live.
-   secrets.php is gitignored and must never be committed. */
+/* copy this to secrets.php and fill in real values before going live */
 
 define("SAI_EMAIL", "");            // where booking notifications go
 define("SAI_M_PESA_ENABLED", false);

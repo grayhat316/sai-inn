@@ -1,5 +1,4 @@
-/* Sai Inn announcements: the pinned strip under the header, the home page
-   section, and the single notice page (notice?id=N). */
+/* announcements: the pinned strip, the home section, the notice page */
 
 (function () {
   const items = (SAI.announcements || []).filter((a) => a && a.title);
@@ -24,7 +23,7 @@
     return m ? Number(parts[2]) + " " + m : "";
   };
 
-  /* ---------- pinned strip (every page) ---------- */
+  /* pinned strip (every page) */
   const strip = document.getElementById("ann-strip");
   if (strip) {
     let dismissed = {};
@@ -63,7 +62,7 @@
     }
   }
 
-  /* ---------- home page section ---------- */
+  /* home page section */
   const section = document.getElementById("announcements");
   const grid = document.getElementById("home-announcements");
   if (section && grid) {
@@ -71,20 +70,23 @@
       section.hidden = false;
       grid.innerHTML = items.slice(0, 6).map((a, i) => {
         const imgs = Array.isArray(a.images) ? a.images : (a.img ? [a.img] : []);
-        return '<article class="ann-card ' + kindClass(a.kind) + ' reveal" style="--d:' + (i * 0.08) + 's">' +
+        const cls = "notice-" + String(a.kind || "Notice").toLowerCase().replace(/[^a-z]+/g, "-");
+        return '<article class="post-card reveal ' + cls + (imgs.length ? "" : " no-thumb") + '" style="--d:' + (i * 0.08) + 's">' +
           (imgs.length
-            ? '<a class="ann-media" href="notice?id=' + a.id + '"><img src="' + esc(asset(imgs[0])) + '" alt="' + esc(a.title) + '" loading="lazy">' +
-              (imgs.length > 1 ? '<span class="ann-count">+' + (imgs.length - 1) + ' photo' + (imgs.length > 2 ? "s" : "") + '</span>' : "") +
+            ? '<a class="thumb" href="notice?id=' + a.id + '">' +
+                '<img src="' + esc(asset(imgs[0])) + '" alt="' + esc(a.title) + '" loading="lazy">' +
+                (imgs.length > 1 ? '<span class="post-count">' + imgs.length + ' photos</span>' : "") +
               '</a>'
             : "") +
-          '<div class="ann-body">' +
-            '<div class="ann-top">' +
-              '<span class="ann-kind">' + (ICONS[a.kind] || ICONS.Notice) + esc(a.kind || "Notice") + '</span>' +
-              (a.ends_on ? '<span class="ann-until">Until ' + esc(shortDate(a.ends_on)) + '</span>' : "") +
+          '<div>' +
+            '<div class="date"><span class="notice-line">' + (ICONS[a.kind] || ICONS.Notice) + esc(a.kind || "Notice") + '</span>' +
+              (a.ends_on ? ' · until ' + esc(shortDate(a.ends_on)) : "") +
             '</div>' +
-            '<h3>' + esc(a.title) + '</h3>' +
-            '<p>' + esc(a.body.length > 190 ? a.body.slice(0, 190).trim() + "..." : a.body) + '</p>' +
-            '<a class="ann-more" href="notice?id=' + a.id + '">Read more</a>' +
+            '<h3><a href="notice?id=' + a.id + '">' + esc(a.title) + '</a></h3>' +
+            '<p>' + esc(a.body.length > 200 ? a.body.slice(0, 200).trim() + "..." : a.body) + '</p>' +
+            '<a class="read" href="notice?id=' + a.id + '">Read more' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
+            '</a>' +
           '</div>' +
         '</article>';
       }).join("");
@@ -92,7 +94,7 @@
     }
   }
 
-  /* ---------- single notice page ---------- */
+  /* single notice page */
   const root = document.getElementById("notice-root");
   if (root) {
     const id = Number(new URLSearchParams(location.search).get("id") || 0);

@@ -1,7 +1,7 @@
 /* Sai Inn account page: sign in, create account, booking history, loyalty */
 
 (function () {
-  /* ---------- account page ---------- */
+  /* account page */
   /* password show/hide on every password field */
   document.querySelectorAll(".pw-eye").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -327,7 +327,7 @@
   }
   loadMe();
 
-  /* ---------- booking tracker (no account needed) ---------- */
+  /* booking tracker (no account needed) */
   const trackForm = document.getElementById("track-form");
   const result = document.getElementById("track-result");
   if (trackForm) {

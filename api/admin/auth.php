@@ -12,15 +12,12 @@ if ($action === "check") {
     respond(["ok" => true, "authed" => false]);
 }
 
-/* Is this a brand-new install with no administrator yet? The login page uses
-   this to offer first-time setup, so a host that was never given a password
-   (no shell, no env var) can still be claimed from the browser. */
+/* first-time setup check for a site with no administrator */
 if ($action === "needs_setup") {
     respond(["ok" => true, "needs_setup" => admin_count() === 0]);
 }
 
-/* One-time creation of the first administrator. Refuses the moment any
-   administrator exists, so it cannot be used to take over a live site. */
+/* create the first administrator, once */
 if ($action === "first_admin") {
     if (($_SERVER["REQUEST_METHOD"] ?? "") !== "POST") {
         fail("Method not allowed.", 405);

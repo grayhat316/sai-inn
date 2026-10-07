@@ -1,5 +1,7 @@
 /* Sai Inn rooms page: detail rows with photo strips + full preview */
 
+const offerCode = (new URLSearchParams(location.search).get("offer") || "").toUpperCase();
+
 const roomListWrap = document.getElementById("room-detail-list");
 if (roomListWrap && SAI.rooms) {
   roomListWrap.innerHTML = SAI.rooms.map((r) => {
@@ -30,7 +32,8 @@ if (roomListWrap && SAI.rooms) {
           '<div class="price-tag">KSh ' + r.price.toLocaleString() + ' <small>/ night</small></div>' +
           '<p class="desc">' + r.desc + '</p>' +
           '<div class="amenity-chips">' + chips + '</div>' +
-          '<a class="btn btn-gold" href="book?room=' + encodeURIComponent(r.name) + '">Reserve this room</a>' +
+          '<a class="btn btn-gold" href="book?room=' + encodeURIComponent(r.name) + (offerCode ? '&offer=' + encodeURIComponent(offerCode) : '') + '">Reserve this room</a>' +
+          (offerCode ? '<p class="form-note">Offer ' + offerCode + ' comes with this booking.</p>' : "") +
         '</div>' +
       '</article>'
     );

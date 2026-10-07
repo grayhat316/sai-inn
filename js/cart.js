@@ -15,8 +15,7 @@
     }
   }
 
-  /* drop items whose dish no longer exists in the menu, so stale
-     entries from older sessions can never ghost the badge or cart */
+  /* drop cart items whose dish is gone from the menu */
   function valid(list) {
     if (!SAI || !SAI.menu || !SAI.menu.length) return list;
     const known = {};

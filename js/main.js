@@ -314,8 +314,7 @@ document.querySelectorAll("[data-year]").forEach((el) => {
   el.textContent = new Date().getFullYear();
 });
 
-/* event cards are clickable everywhere: on the events page they pre-fill the
-   reserve form, on any other page they send you to it with the event picked */
+/* event cards: pre-fill the reserve form, or send the guest to it */
 function saiPrepHotelEvent(name) {
   const catSelect = document.getElementById("ev-cat");
   if (!catSelect) return false;

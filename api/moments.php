@@ -1,8 +1,5 @@
 <?php
-/* Sai Inn moments: signed-in guests share photos from their stay.
-   GET  ?action=list&offset=0&limit=12   approved moments (paginated)
-   POST (multipart)                      submit a moment (account required,
-                                         note required, admin approves) */
+/* moments: signed-in guests share photos from their stay */
 
 require_once __DIR__ . "/helpers.php";
 sess_start();

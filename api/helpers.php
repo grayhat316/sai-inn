@@ -68,8 +68,7 @@ function valid_date(string $date): bool
     return checkdate((int) $parts[1], (int) $parts[2], (int) $parts[0]);
 }
 
-/* honeypot: the public forms carry a hidden field named "website".
-   humans never fill it; bots do. */
+/* honeypot: public forms carry a hidden website field that humans never fill */
 function honeypot_ok(array $data): bool
 {
     $h = $data["website"] ?? "";
@@ -151,8 +150,7 @@ function new_booking_ref(): string
     return $ref;
 }
 
-/* sessions with hardened cookies. Admin auth and guest accounts use
-   different session keys (admin_id vs user_id), so they never collide. */
+/* sessions with hardened cookies */
 function sess_start(): void
 {
     if (session_status() === PHP_SESSION_NONE) {
@@ -172,9 +170,7 @@ function guest_id(): int
     return (int) ($_SESSION["user_id"] ?? 0);
 }
 
-/* save an uploaded image: finfo MIME sniff + whitelist + random name +
-   GD re-encode when available + no-exec uploads dir. Returns the public
-   relative path (uploads/... or uploads/<subdir>/...). */
+/* save an uploaded image and return its public path */
 function save_image_file(array $file, string $subdir = ""): string
 {
     if (($file["error"] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {

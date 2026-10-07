@@ -131,18 +131,20 @@ const offersGrid = document.getElementById("home-offers");
 if (offersSection && offersGrid && SAI.offers && SAI.offers.length) {
   offersSection.hidden = false;
   offersGrid.innerHTML = SAI.offers.map((o, i) =>
-    '<article class="offer-card reveal' + (o.img ? " has-flyer" : "") + '" style="--d:' + (i * 0.08) + 's">' +
-      (o.img ? '<div class="offer-flyer"><a href="#" data-lightbox="' + SAI_ASSET(o.img) + '"><img src="' + SAI_ASSET(o.img) + '" alt="' + o.title + ' flyer" loading="lazy"></a></div>' : "") +
-      '<div class="offer-body">' +
-        '<div class="offer-top">' +
-          (o.badge ? '<span class="offer-badge">' + o.badge + '</span>' : '<span class="offer-badge">Limited</span>') +
-          '<span class="offer-pct">' + o.discount_pct + '%<small>off</small></span>' +
-        '</div>' +
+    '<article class="post-card reveal" style="--d:' + (i * 0.08) + 's">' +
+      (o.img
+        ? '<a class="thumb tall" href="#" data-lightbox="' + SAI_ASSET(o.img) + '">' +
+            '<img src="' + SAI_ASSET(o.img) + '" alt="' + o.title + ' flyer" loading="lazy">' +
+            '<span class="post-count">' + o.discount_pct + '% off</span>' +
+          '</a>'
+        : "") +
+      '<div>' +
+        '<div class="date">' + (o.badge || "Offer") + (o.code ? " · code " + o.code : "") + '</div>' +
         '<h3>' + o.title + '</h3>' +
         '<p>' + o.text + '</p>' +
-        '<div class="offer-foot">' +
-          '<a class="btn btn-gold" href="account?offer=' + encodeURIComponent(o.code || "") + '&amp;next=book">Apply offer</a>' +
-        '</div>' +
+        '<a class="read" href="rooms?offer=' + encodeURIComponent(o.code || "") + '">Pick a room and apply' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
+        '</a>' +
       '</div>' +
     '</article>'
   ).join("");

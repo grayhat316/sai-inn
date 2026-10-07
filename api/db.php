@@ -1,5 +1,5 @@
 <?php
-/* Sai Inn database: SQLite via PDO, tables auto-created on first use. */
+/* database: SQLite via PDO, tables auto-created */
 
 require_once __DIR__ . "/config.php";
 
@@ -238,13 +238,7 @@ function migrate(PDO $pdo): void
     sai_boot($pdo);
 }
 
-/* First boot on a fresh host (Render, cPanel, a new laptop):
-   - install the content snapshot that ships in seed/content.json, so rooms,
-     menu, offers, journal and notices are all there before anyone visits
-   - restore the snapshot photos into uploads/
-   - create the admin account from SAI_ADMIN_USER / SAI_ADMIN_PASSWORD when the
-     host has no shell to run the one-time setup with.
-   Guest data (bookings, orders, accounts, moments) is never seeded. */
+/* first boot: install the content snapshot, restore photos, create the admin from env */
 function sai_boot(PDO $pdo): void
 {
     static $ran = false;
