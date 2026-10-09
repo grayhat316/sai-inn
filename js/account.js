@@ -58,7 +58,7 @@
         : "";
       return '<tr>' +
         '<td><span class="ref-cell">' + b.ref + '</span> <button type="button" class="ref-copy btn btn-sm btn-line" data-ref="' + b.ref + '">Copy</button></td>' +
-        '<td>' + b.room_type + '</td>' +
+        '<td>' + esc(b.room_type) + '</td>' +
         '<td>' + b.checkin + ' to ' + b.checkout + '</td>' +
         '<td><span class="status-pill st-' + b.status + '">' + b.status + '</span></td>' +
         '<td>' + total + '</td>' +
@@ -67,9 +67,9 @@
 
     const offers = (SAI.offers || []).map((o) =>
       '<div class="offer-row">' +
-        '<div class="offer-row-head"><strong>' + o.title + '</strong>' +
+        '<div class="offer-row-head"><strong>' + esc(o.title) + '</strong>' +
         '<span class="offer-pct-sm">' + o.discount_pct + '% off</span></div>' +
-        '<p>' + o.text + '</p>' +
+        '<p>' + esc(o.text) + '</p>' +
         '<a class="btn btn-sm btn-gold" href="book?offer=' + encodeURIComponent(o.code || "") + '">Apply offer</a>' +
       '</div>'
     ).join("");
@@ -83,7 +83,7 @@
         '<div class="acc-grid">' +
           '<div class="acc-card">' +
             '<span class="eyebrow">Loyalty</span>' +
-            '<div class="tier-badge tier-' + tier.name.toLowerCase() + '">' + tier.name + '</div>' +
+            '<div class="tier-badge tier-' + tier.name.toLowerCase() + '">' + esc(tier.name) + '</div>' +
             '<p>' + d.stays + ' stay' + (d.stays === 1 ? "" : "s") + ' with us so far.</p>' +
             (tier.discount_pct > 0
               ? '<p class="form-note">You get ' + tier.discount_pct + '% off every booking you make while signed in.</p>'
@@ -391,11 +391,11 @@
           '<div class="review-card">' +
             '<h3>Booking ' + b.ref + '</h3>' +
             '<div class="sum-line"><span>Status</span><span>' + status + '</span></div>' +
-            '<div class="sum-line"><span>Name</span><span>' + b.name + '</span></div>' +
+            '<div class="sum-line"><span>Name</span><span>' + esc(b.name) + '</span></div>' +
             '<div class="sum-line"><span>Dates</span><span>' + b.checkin + ' to ' + b.checkout + '</span></div>' +
             '<div class="sum-line"><span>Nights</span><span>' + b.nights + '</span></div>' +
             '<div class="sum-line"><span>Guests</span><span>' + b.guests + '</span></div>' +
-            (b.room_type ? '<div class="sum-line"><span>Room</span><span>' + b.room_type + '</span></div>' : "") +
+            (b.room_type ? '<div class="sum-line"><span>Room</span><span>' + esc(b.room_type) + '</span></div>' : "") +
             '<p class="form-note">Questions? Call 0726 071 111 and quote your reference.</p>' +
           '</div>';
       } catch (err) {

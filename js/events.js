@@ -3,7 +3,6 @@
 (function () {
   const form = document.getElementById("event-form");
 
-
   /* clickable event cards are handled globally in main.js (works on home too) */
 
   /* event picked from another page (?ev=) lands here: pre-fill and scroll down */

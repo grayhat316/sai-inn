@@ -9,7 +9,7 @@ if (roomListWrap && SAI.rooms) {
     if (!gal.length) return "";
     const thumbs = gal.map((src, i) =>
       '<a href="#" data-lightbox="' + src + '" data-full="' + src + '">' +
-      '<img src="' + src + '" alt="' + r.name + ' photo ' + (i + 1) + '" class="' + (i === 0 ? "active" : "") + '"></a>'
+      '<img src="' + src + '" alt="' + esc(r.name) + ' photo ' + (i + 1) + '" class="' + (i === 0 ? "active" : "") + '"></a>'
     ).join("");
     const chips = (r.amenities || []).map((a) =>
       '<span class="amenity-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>' + a + '</span>'
@@ -18,7 +18,7 @@ if (roomListWrap && SAI.rooms) {
       '<article class="room-detail-row reveal" id="' + r.id + '">' +
         '<div class="room-media">' +
           '<a href="#" data-lightbox="' + gal[0] + '" class="room-main-link">' +
-            '<img class="room-main" src="' + gal[0] + '" alt="' + r.name + ' room at Sai Inn" loading="lazy">' +
+            '<img class="room-main" src="' + gal[0] + '" alt="' + esc(r.name) + ' room at Sai Inn" loading="lazy">' +
             '<span class="zoom-hint">' +
               '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>' +
               ' View photos' +
@@ -28,9 +28,9 @@ if (roomListWrap && SAI.rooms) {
         '</div>' +
         '<div class="room-info">' +
           '<span class="eyebrow">Bed &amp; breakfast</span>' +
-          '<h2>' + r.name + '</h2>' +
+          '<h2>' + esc(r.name) + '</h2>' +
           '<div class="price-tag">KSh ' + r.price.toLocaleString() + ' <small>/ night</small></div>' +
-          '<p class="desc">' + r.desc + '</p>' +
+          '<p class="desc">' + esc(r.desc) + '</p>' +
           '<div class="amenity-chips">' + chips + '</div>' +
           '<a class="btn btn-gold" href="book?room=' + encodeURIComponent(r.name) + (offerCode ? '&offer=' + encodeURIComponent(offerCode) : '') + '">Reserve this room</a>' +
           (offerCode ? '<p class="form-note">Offer ' + offerCode + ' comes with this booking.</p>' : "") +

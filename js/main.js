@@ -262,14 +262,14 @@ function renderSharedBlocks() {
   const eventsGrid = document.getElementById("events-grid");
   if (eventsGrid && SAI.events) {
     eventsGrid.innerHTML = SAI.events.map((e, i) =>
-      '<article class="event-card reveal" style="--d:' + (i * 0.07) + 's" data-evname="' + e.name + '" tabindex="0">' +
+      '<article class="event-card reveal" style="--d:' + (i * 0.07) + 's" data-evname="' + esc(e.name) + '" tabindex="0">' +
         '<div class="ev-media">' +
-          '<img src="' + SAI_ASSET(e.img) + '" alt="' + e.name + ' at Sai Inn" loading="lazy">' +
+          '<img src="' + SAI_ASSET(e.img) + '" alt="' + esc(e.name) + ' at Sai Inn" loading="lazy">' +
           '<span class="icon">' + (SAI.eventIcons[e.icon] || "") + '</span>' +
         '</div>' +
         '<div class="ev-body">' +
-          '<h3>' + e.name + '</h3>' +
-          '<p>' + e.desc + '</p>' +
+          '<h3>' + esc(e.name) + '</h3>' +
+          '<p>' + esc(e.desc) + '</p>' +
           '<button class="btn btn-sm btn-line ev-book-btn" type="button">Book this event</button>' +
         '</div>' +
       '</article>'
@@ -283,10 +283,10 @@ function renderSharedBlocks() {
       '<article class="testi-card reveal" style="--d:' + (i * 0.09) + 's">' +
         '<span class="quote-mark">&ldquo;</span>' +
         '<div class="testi-stars">' + "\u2605".repeat(t.stars) + '</div>' +
-        '<blockquote><p>' + t.text + '</p></blockquote>' +
+        '<blockquote><p>' + esc(t.text) + '</p></blockquote>' +
         '<div class="testi-who">' +
-          '<img src="' + t.img + '" alt="' + t.name + '" loading="lazy">' +
-          '<div><div class="name">' + t.name + '</div><div class="role">' + t.role + '</div></div>' +
+          '<img src="' + t.img + '" alt="' + esc(t.name) + '" loading="lazy">' +
+          '<div><div class="name">' + esc(t.name) + '</div><div class="role">' + esc(t.role) + '</div></div>' +
         '</div>' +
       '</article>'
     ).join("");
@@ -298,8 +298,8 @@ function renderSharedBlocks() {
     valuesGrid.innerHTML = SAI.values.map((v, i) =>
       '<div class="value-card reveal" style="--d:' + (i * 0.06) + 's">' +
         '<span class="n">0' + (i + 1) + '</span>' +
-        '<h3>' + v.name + '</h3>' +
-        '<p>' + v.desc + '</p>' +
+        '<h3>' + esc(v.name) + '</h3>' +
+        '<p>' + esc(v.desc) + '</p>' +
       '</div>'
     ).join("");
     observeReveals(valuesGrid);

@@ -18,13 +18,13 @@
     const thumbs = imgs.slice(1, 4).map((s) => '<img src="' + SAI_ASSET(s) + '" alt="More photos for this moment" loading="lazy">').join("");
     return '<article class="post-card reveal" style="--d:' + (i % 4) * 0.07 + 's">' +
       '<a class="thumb" href="' + href + '">' +
-        (first ? '<img src="' + first + '" alt="Moment captured at Sai Inn by ' + (m.name || "a guest") + '" loading="lazy">' : "") +
+        (first ? '<img src="' + first + '" alt="Moment captured at Sai Inn by ' + esc(m.name || "a guest") + '" loading="lazy">' : "") +
         (imgs.length > 1 ? '<span class="post-count">' + imgs.length + ' photos</span>' : "") +
       '</a>' +
       '<div>' +
         '<div class="date">' + (m.created_at || "Sai Inn moment") + '</div>' +
-        '<h3><a href="' + href + '">' + (m.name || "Sai Inn guest") + '</a></h3>' +
-        (m.note ? '<p>' + m.note + '</p>' : "") +
+        '<h3><a href="' + href + '">' + esc(m.name || "Sai Inn guest") + '</a></h3>' +
+        (m.note ? '<p>' + esc(m.note) + '</p>' : "") +
         (thumbs ? '<div class="post-thumbs">' + thumbs + '</div>' : "") +
         '<a class="read" href="' + href + '">' +
           'View the moment' +

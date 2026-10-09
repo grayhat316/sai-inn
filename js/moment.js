@@ -27,7 +27,7 @@
       const imgs = (m.images && m.images.length) ? m.images : (m.image ? [m.image] : []);
       root.innerHTML =
         '<div class="post-date">' + (m.created_at || "Sai Inn moment") + '</div>' +
-        '<h1>' + (m.name || "Sai Inn guest") + '</h1>' +
+        '<h1>' + esc(m.name || "Sai Inn guest") + '</h1>' +
         (() => {
           if (!imgs.length) return "";
           const gridImgs = imgs.map((s, k) =>

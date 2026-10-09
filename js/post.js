@@ -35,7 +35,7 @@
       if (!imgs.length) return "";
       const gridImgs = imgs.map((s, k) =>
         '<a href="#" data-lightbox="' + SAI_ASSET(s) + '" class="pg-img' + (k === 0 ? " pg-main" : "") + '">' +
-          '<img src="' + SAI_ASSET(s) + '" alt="' + post.title + ' photo ' + (k + 1) + '" loading="lazy">' +
+          '<img src="' + SAI_ASSET(s) + '" alt="' + esc(post.title) + ' photo ' + (k + 1) + '" loading="lazy">' +
         '</a>'
       ).join("");
       return '<div class="post-gallery">' + gridImgs + '</div>';

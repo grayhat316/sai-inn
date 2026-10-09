@@ -1,7 +1,7 @@
 {
   "app": "Sai Inn Hotel website",
-  "build": "2026-10-09 12:35",
-  "commit": "60c04fb",
-  "pushed": "2026-10-09 12:35",
-  "change": "Stop serving the Dockerfile and render.yaml, block direct access to internal php, add robots.txt, sitemap.xml and HSTS"
+  "build": "2026-10-09 12:54",
+  "commit": "98d3a9d",
+  "pushed": "2026-10-09 12:54",
+  "change": "Escape all database and guest content in the public pages, block path traversal, fix the stray test dish photo"
 }

@@ -23,10 +23,10 @@ const amenityItems = [
 if (amenityGrid) {
   const cards = amenityItems.map((a, i) =>
     '<a class="amenity-card" href="' + a.href + '">' +
-      '<img src="' + a.img + '" alt="' + a.title + ' at Sai Inn" loading="lazy">' +
+      '<img src="' + a.img + '" alt="' + esc(a.title) + ' at Sai Inn" loading="lazy">' +
       '<span class="shade"></span>' +
       '<span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>' +
-      '<span class="info"><span class="tag">' + a.tag + '</span><h3>' + a.title + '</h3></span>' +
+      '<span class="info"><span class="tag">' + a.tag + '</span><h3>' + esc(a.title) + '</h3></span>' +
     '</a>'
   ).join("");
   amenityGrid.classList.remove("amenity-grid");
@@ -40,12 +40,12 @@ if (roomGrid) {
   roomGrid.innerHTML = SAI.rooms.map((r, i) =>
     '<article class="room-card reveal" style="--d:' + (i * 0.07) + 's">' +
       '<div class="media">' +
-        '<img src="' + SAI_ASSET(r.img) + '" alt="' + r.name + ' room at Sai Inn" loading="lazy">' +
+        '<img src="' + SAI_ASSET(r.img) + '" alt="' + esc(r.name) + ' room at Sai Inn" loading="lazy">' +
         '<span class="price-pill"><em>KSh ' + r.price.toLocaleString() + '</em> / night, B&amp;B</span>' +
       '</div>' +
       '<div class="body">' +
-        '<h3>' + r.name + '</h3>' +
-        '<p>' + r.desc + '</p>' +
+        '<h3>' + esc(r.name) + '</h3>' +
+        '<p>' + esc(r.desc) + '</p>' +
         '<a class="link" href="rooms.html">Details and booking' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
         '</a>' +
@@ -86,11 +86,11 @@ if (dishStrip && SAI.menu) {
     const price = m.price === null ? "Ask for price" : "KSh " + Number(m.price).toLocaleString();
     return '<a class="dish-card reveal" style="--d:' + (i * 0.05) + 's" href="dining">' +
       '<span class="media">' +
-        (m.img ? '<img src="' + SAI_ASSET(m.img) + '" alt="' + m.name + '" loading="lazy">' : '<span class="no-img">' + m.name.charAt(0) + '</span>') +
-        '<span class="cat-tag">' + m.cat + '</span>' +
+        (m.img ? '<img src="' + SAI_ASSET(m.img) + '" alt="' + esc(m.name) + '" loading="lazy">' : '<span class="no-img">' + m.name.charAt(0) + '</span>') +
+        '<span class="cat-tag">' + esc(m.cat) + '</span>' +
       '</span>' +
       '<span class="body">' +
-        '<h3>' + m.name + '</h3>' +
+        '<h3>' + esc(m.name) + '</h3>' +
         '<span class="row">' +
           '<span class="price">' + price + '</span>' +
           '<span class="view-btn">Menu</span>' +
@@ -134,14 +134,14 @@ if (offersSection && offersGrid && SAI.offers && SAI.offers.length) {
     '<article class="post-card reveal" style="--d:' + (i * 0.08) + 's">' +
       (o.img
         ? '<a class="thumb tall" href="#" data-lightbox="' + SAI_ASSET(o.img) + '">' +
-            '<img src="' + SAI_ASSET(o.img) + '" alt="' + o.title + ' flyer" loading="lazy">' +
+            '<img src="' + SAI_ASSET(o.img) + '" alt="' + esc(o.title) + ' flyer" loading="lazy">' +
             '<span class="post-count">' + o.discount_pct + '% off</span>' +
           '</a>'
         : "") +
       '<div>' +
-        '<div class="date">' + (o.badge || "Offer") + (o.code ? " · code " + o.code : "") + '</div>' +
-        '<h3>' + o.title + '</h3>' +
-        '<p>' + o.text + '</p>' +
+        '<div class="date">' + esc(o.badge || "Offer") + (o.code ? " · code " + esc(o.code) : "") + '</div>' +
+        '<h3>' + esc(o.title) + '</h3>' +
+        '<p>' + esc(o.text) + '</p>' +
         '<a class="read" href="rooms?offer=' + encodeURIComponent(o.code || "") + '">Pick a room and apply' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
         '</a>' +
@@ -160,7 +160,7 @@ if (offersSection && offersGrid && SAI.offers && SAI.offers.length) {
         pop.innerHTML =
           '<button class="op-close" aria-label="Dismiss">&times;</button>' +
           '<strong>Offer on now</strong>' +
-          '<span>' + first.title + ' (' + first.discount_pct + '% off)</span>' +
+          '<span>' + esc(first.title) + ' (' + first.discount_pct + '% off)</span>' +
           '<a class="btn btn-sm btn-gold" href="account?offer=' + encodeURIComponent(first.code || "") + '&amp;next=book">Apply</a>';
         document.body.appendChild(pop);
         requestAnimationFrame(function () { pop.classList.add("show"); });

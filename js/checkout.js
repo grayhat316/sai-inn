@@ -52,7 +52,7 @@
         '<aside class="panel">' +
           '<h3>Your order</h3>' +
           lines.map((l) =>
-            '<div class="sum-line"><span>' + l.qty + 'x ' + l.name + '</span><span>KSh ' + (l.unit * l.qty).toLocaleString() + '</span></div>'
+            '<div class="sum-line"><span>' + l.qty + 'x ' + esc(l.name) + '</span><span>KSh ' + (l.unit * l.qty).toLocaleString() + '</span></div>'
           ).join("") +
           '<div class="sum-line total"><span>Total</span><span>KSh ' + total.toLocaleString() + '</span></div>' +
           '<p class="form-note">You pay when you receive the order. We will call to confirm everything first.</p>' +

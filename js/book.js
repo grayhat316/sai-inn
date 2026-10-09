@@ -92,14 +92,14 @@
     const gal = (selectedRoom.gallery && selectedRoom.gallery.length ? selectedRoom.gallery : [selectedRoom.img]);
     const mainSrc = SAI_ASSET(gal[0]);
     const main = mainSrc
-      ? '<a href="#" data-lightbox="' + mainSrc + '" class="bk-media-link"><img src="' + mainSrc + '" alt="' + selectedRoom.name + '">' +
+      ? '<a href="#" data-lightbox="' + mainSrc + '" class="bk-media-link"><img src="' + mainSrc + '" alt="' + esc(selectedRoom.name) + '">' +
         '<span class="bk-ribbon">Your room</span></a>'
-      : '<div class="bk-media"><span class="no-img">' + selectedRoom.name.charAt(0) + '</span><span class="bk-ribbon">Your room</span></div>';
+      : '<div class="bk-media"><span class="no-img">' + esc(selectedRoom.name).charAt(0) + '</span><span class="bk-ribbon">Your room</span></div>';
     const thumbs = gal.length > 1
       ? '<div class="bk-thumbs">' + gal.map((g, i) => {
           const s = SAI_ASSET(g);
           return s ? '<a href="#" data-lightbox="' + s + '">' +
-            '<img src="' + s + '" alt="' + selectedRoom.name + ' photo ' + (i + 1) + '">' +
+            '<img src="' + s + '" alt="' + esc(selectedRoom.name) + ' photo ' + (i + 1) + '">' +
             (i === 0 ? '<span class="t-main">Main</span>' : "") + '</a>' : "";
         }).join("") + '</div>'
       : "";
@@ -109,12 +109,12 @@
     if (guest && guest.discount_pct > 0 && (!offer || guest.discount_pct > offer.discount_pct)) {
       chips.push('<span class="bk-chip">Loyalty: ' + guest.discount_pct + '% off (' + guest.tier + ')</span>');
     }
-    if (guest) chips.push('<span class="bk-chip dim">Signed in as ' + guest.name + '</span>');
+    if (guest) chips.push('<span class="bk-chip dim">Signed in as ' + esc(guest.name) + '</span>');
 
     els.summary.innerHTML =
       main + thumbs +
       '<div class="bk-body">' +
-        '<h3>' + selectedRoom.name + '</h3>' +
+        '<h3>' + esc(selectedRoom.name) + '</h3>' +
         '<div class="bk-price">' + money(selectedRoom.price) + ' / night, bed and breakfast</div>' +
         (chips.length ? '<div class="bk-chips">' + chips.join("") + '</div>' : "") +
         '<div class="sum-line"><span>Dates</span><span>' + (n > 0 ? els.checkin.value + " to " + els.checkout.value : "Pick your dates") + '</span></div>' +
@@ -131,11 +131,11 @@
     els.pickList.innerHTML = SAI.rooms.map((r) => {
       const img = SAI_ASSET(r.img);
       const pic = img
-        ? '<img src="' + img + '" alt="' + r.name + '">'
-        : '<span class="rp-noimg">' + r.name.charAt(0) + '</span>';
+        ? '<img src="' + img + '" alt="' + esc(r.name) + '">'
+        : '<span class="rp-noimg">' + esc(r.name).charAt(0) + '</span>';
       return '<button type="button" class="room-pick-card' + (selectedRoom && r.id === selectedRoom.id ? " selected" : "") + '" data-id="' + r.id + '">' +
         pic +
-        '<span class="rp-info"><span class="nm">' + r.name + '</span><br><span class="pr">' + money(r.price) + ' / night</span></span>' +
+        '<span class="rp-info"><span class="nm">' + esc(r.name) + '</span><br><span class="pr">' + money(r.price) + ' / night</span></span>' +
         '<span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg></span>' +
       '</button>';
     }).join("");

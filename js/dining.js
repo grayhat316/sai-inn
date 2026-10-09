@@ -18,15 +18,15 @@
   function card(m) {
     const price = m.price === null ? "Ask for price" : "KSh " + m.price.toLocaleString();
     const media = m.img
-      ? '<img src="' + SAI_ASSET(m.img) + '" alt="' + m.name + '" loading="lazy">'
-      : '<span class="no-img">' + m.name.charAt(0) + '</span>';
+      ? '<img src="' + SAI_ASSET(m.img) + '" alt="' + esc(m.name) + '" loading="lazy">'
+      : '<span class="no-img">' + esc(m.name).charAt(0) + '</span>';
     return (
       '<article class="dish-card">' +
         '<div class="media">' + media +
-          '<span class="cat-tag">' + m.cat + '</span>' +
+          '<span class="cat-tag">' + esc(m.cat) + '</span>' +
         '</div>' +
         '<div class="body">' +
-          '<h3>' + m.name + '</h3>' +
+          '<h3>' + esc(m.name) + '</h3>' +
           '<div class="row">' +
             '<span class="price">' + price + '</span>' +
             '<a class="view-btn" href="dish.html?id=' + encodeURIComponent(m.id) + '">View</a>' +

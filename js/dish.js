@@ -18,12 +18,12 @@
 
   const imgs = (dish.images && dish.images.length) ? dish.images : (dish.img ? [dish.img] : []);
   const media = imgs[0]
-    ? '<img src="' + SAI_ASSET(imgs[0]) + '" alt="' + dish.name + '">'
-    : '<span class="no-img">' + dish.name.charAt(0) + '</span>';
+    ? '<img src="' + SAI_ASSET(imgs[0]) + '" alt="' + esc(dish.name) + '">'
+    : '<span class="no-img">' + esc(dish.name).charAt(0) + '</span>';
 
   const gallery = imgs.length > 1
     ? '<div class="dish-gallery">' + imgs.slice(1).map((s) =>
-        '<a href="#" data-lightbox="' + SAI_ASSET(s) + '"><img src="' + SAI_ASSET(s) + '" alt="' + dish.name + ' photo" loading="lazy"></a>'
+        '<a href="#" data-lightbox="' + SAI_ASSET(s) + '"><img src="' + SAI_ASSET(s) + '" alt="' + esc(dish.name) + ' photo" loading="lazy"></a>'
       ).join("") + '</div>'
     : "";
 
@@ -41,9 +41,9 @@
     '<div class="dish-layout">' +
       '<div class="dish-media">' + media + '</div>' +
       '<div class="dish-info">' +
-        '<nav class="breadcrumb" aria-label="Breadcrumb"><a href="dining.html">Menu</a> / <span>' + dish.cat + '</span></nav>' +
-        '<h1>' + dish.name + '</h1>' +
-        '<div class="meta-line">' + dish.cat + ' / Sai Inn Restaurant</div>' +
+        '<nav class="breadcrumb" aria-label="Breadcrumb"><a href="dining.html">Menu</a> / <span>' + esc(dish.cat) + '</span></nav>' +
+        '<h1>' + esc(dish.name) + '</h1>' +
+        '<div class="meta-line">' + esc(dish.cat) + ' / Sai Inn Restaurant</div>' +
         priceHtml +
         '<p class="desc">' + desc + '</p>' +
         (window.SAI_orderedAgo ? '<div class="order-ago dish-ago">' + window.SAI_orderedAgo(dish.id, dish.cat) + '</div>' : "") +
@@ -64,8 +64,8 @@
         '<div class="sec-head"><span class="eyebrow">More from this category</span><h2>You may also like</h2></div>' +
         '<div class="dish-grid">' + related.map((m) =>
           '<article class="dish-card">' +
-            '<div class="media">' + (m.img ? '<img src="' + SAI_ASSET(m.img) + '" alt="' + m.name + '" loading="lazy">' : '<span class="no-img">' + m.name.charAt(0) + '</span>') + '</div>' +
-            '<div class="body"><h3>' + m.name + '</h3>' +
+            '<div class="media">' + (m.img ? '<img src="' + SAI_ASSET(m.img) + '" alt="' + esc(m.name) + '" loading="lazy">' : '<span class="no-img">' + m.name.charAt(0) + '</span>') + '</div>' +
+            '<div class="body"><h3>' + esc(m.name) + '</h3>' +
             '<div class="row"><span class="price">' + (m.price === null ? "Ask for price" : "KSh " + m.price.toLocaleString()) + '</span>' +
             '<a class="view-btn" href="dish.html?id=' + encodeURIComponent(m.id) + '">View</a></div></div>' +
           '</article>'

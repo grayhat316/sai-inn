@@ -10,12 +10,12 @@
     if (!dish) return "";
     const unit = dish.price === null ? 0 : dish.price;
     const thumb = dish.img
-      ? '<img src="' + SAI_ASSET(dish.img) + '" alt="' + dish.name + '">'
-      : '<span class="thumb">' + dish.name.charAt(0) + '</span>';
+      ? '<img src="' + SAI_ASSET(dish.img) + '" alt="' + esc(dish.name) + '">'
+      : '<span class="thumb">' + esc(dish.name).charAt(0) + '</span>';
     return (
       '<tr>' +
         '<td class="item-cell">' + thumb +
-          '<div><div class="nm">' + dish.name + '</div>' +
+          '<div><div class="nm">' + esc(dish.name) + '</div>' +
           '<div class="pr">' + (dish.price === null ? "Ask for price" : "KSh " + unit.toLocaleString() + ' each') + '</div></div>' +
         '</td>' +
         '<td class="hide-m"><span class="qty-box">' +

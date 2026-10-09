@@ -12,6 +12,13 @@ const SAI_ROOT = (function () {
 const SAI_ASSET = function (p) { if (!p) return ""; return SAI_ROOT ? SAI_ROOT + "/" + p : p; };
 window.SAI_ASSET = SAI_ASSET;
 
+/* html escaping for anything that comes out of the database or a guest */
+window.esc = function (s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+  });
+};
+
 /* recent-order line for dishes, stable per dish and per hour */
 (function () {
   function seed(str) {
