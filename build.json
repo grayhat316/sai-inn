@@ -1,7 +1,7 @@
 {
   "app": "Sai Inn Hotel website",
-  "build": "2026-10-07 14:29",
-  "commit": "067be40",
-  "pushed": "2026-10-07 14:29",
-  "change": "Identify the tunnel copy correctly and stamp the local build"
+  "build": "2026-10-09 12:35",
+  "commit": "60c04fb",
+  "pushed": "2026-10-09 12:35",
+  "change": "Stop serving the Dockerfile and render.yaml, block direct access to internal php, add robots.txt, sitemap.xml and HSTS"
 }

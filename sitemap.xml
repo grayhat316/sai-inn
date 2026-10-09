@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/indexrooms</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/indexdining</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/indexevents</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/indexgallery</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/indexmoments</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/indexjournal</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/indexabout</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/indexcontact</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/indexbook</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/indexnotice</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/indexprivacy</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/indexterms</loc><changefreq>weekly</changefreq></url>
+</urlset>

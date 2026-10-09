@@ -3,16 +3,20 @@
 Options -Indexes
 DirectoryIndex index.html
 
-# harden the app files
-<FilesMatch "\.(sqlite|sqlite3|db|md|json|lock)$">
+# never serve these files
+<FilesMatch "\.(sqlite|sqlite3|sqlite-wal|sqlite-shm|db|md|json|lock|yaml|yml|sh|py|ini|toml|bak|log)$">
+  Require all denied
+</FilesMatch>
+<FilesMatch "^(Dockerfile|Makefile|Procfile|docker-compose\.yml|composer\.json|package\.json)$">
   Require all denied
 </FilesMatch>
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  # never serve dotfiles or the data folder
+  # never serve dotfiles, the data folder or the content snapshot
   RewriteRule (^|/)\.(?!well-known) - [F]
-  RewriteRule ^data/ - [F]
-  RewriteRule ^api/secrets\.php$ - [F]
+  RewriteRule ^(data|seed|tests)/ - [F]
+  # internal helper files are not entry points
+  RewriteRule ^api/(secrets\.php|db\.php|config\.php|helpers\.php)$ - [F]
   # no PHP execution inside uploads
   RewriteRule ^uploads/.*\.php$ - [F]
   # clean URLs: /rooms serves rooms.html
@@ -29,6 +33,10 @@ DirectoryIndex index.html
   Header set Referrer-Policy "strict-origin-when-cross-origin"
   Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
   Header set X-XSS-Protection "1; mode=block"
+  # browsers only ever reach this site over https
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" "expr=%{HTTP:X-Forwarded-Proto} == 'https' || %{HTTPS} == 'on'"
+  # the admin panel is never cached or embedded
+  Header set Cache-Control "no-store" "expr=%{REQUEST_URI} =~ m#^/admin/#"
 </IfModule>
 
 # php settings

@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# guest and staff areas
+Disallow: /admin/
+Disallow: /account
+Disallow: /book
+Disallow: /checkout
+Disallow: /order
+Disallow: /cart
+Disallow: /api/
+
+Sitemap: /sitemap.xml
